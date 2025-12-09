@@ -27,7 +27,7 @@ npx serve .
 /tjanster/eneo       → tjanster/eneo/index.html
 ```
 
-All internal links use absolute paths (e.g., `/om-kommuna`, `/tjanster/eneo`). New service pages go under `/tjanster/[service-name]/`.
+All internal links use **relative paths** (e.g., `../om-kommuna/`, `./tjanster/eneo/`) to support GitHub Pages deployment under a repository subpath. New service pages go under `tjanster/[service-name]/`.
 
 ### CSS Architecture
 - **Mobile First** with breakpoints at 640px and 1024px
