@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kommuna.se - Delning av digitala- och AI-tjänster mellan Sundsvall, Nordanstig, Hudiksvall, Ljusdal och Ånge kommuner">
+    <title>Kommuna - Digitala tjänster för kommuner</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Hoppa till huvudinnehåll</a>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo" aria-label="Kommuna - Till startsidan">
+                    <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+                        <circle cx="12" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="12" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="20" cy="20" r="4" fill="#00A86B"/>
+                        <line x1="12" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="12" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                    </svg>
+                    <span class="logo-text">Kommuna</span>
+                </a>
+
+                <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Öppna meny">
+                    <span class="hamburger"></span>
+                </button>
+
+                <nav id="main-nav" class="main-nav" aria-label="Huvudnavigering">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link active" aria-current="page">Tjänster</a></li>
+                        <li><a href="om-kommuna.html" class="nav-link">Om Kommuna</a></li>
+                        <li><a href="dokumentation.html" class="nav-link">Dokumentation</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="container">
+                <h1>Digitala tjänster för kommuner</h1>
+                <p class="hero-intro">
+                    Kommuna är ett samarbete mellan Sundsvall, Nordanstig, Hudiksvall, Ljusdal och Ånge kommuner
+                    för delning av digitala- och AI-tjänster. Tillsammans utvecklar och delar vi lösningar
+                    som effektiviserar kommunal verksamhet.
+                </p>
+                <a href="om-kommuna.html" class="btn btn-secondary">Läs mer om samarbetet</a>
+            </div>
+        </section>
+
+        <section class="services" aria-labelledby="services-heading">
+            <div class="container">
+                <h2 id="services-heading">Tillgängliga tjänster</h2>
+
+                <div class="filter-controls" role="group" aria-label="Filtrera tjänster">
+                    <button class="filter-btn active" data-filter="all">Alla</button>
+                    <button class="filter-btn" data-filter="ai">AI-tjänster</button>
+                    <button class="filter-btn" data-filter="digital">Digitala tjänster</button>
+                    <button class="filter-btn" data-filter="integration">Integrationer</button>
+                </div>
+
+                <div class="services-grid" role="list">
+
+                    <!-- AI-tjänster -->
+                    <article class="service-card" data-category="ai" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                                    <path d="M12 2a10 10 0 0 1 10 10"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">AI-tjänst</span>
+                            <h3 class="card-title">AI-assistent för ärendehantering</h3>
+                            <p class="card-description">
+                                Automatiserad hjälp för handläggare att sammanfatta, kategorisera och
+                                föreslå beslut i ärenden.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="ai-arende"
+                                    aria-label="Läs mer om AI-assistent för ärendehantering">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="service-card" data-category="ai" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">AI-tjänst</span>
+                            <h3 class="card-title">Chatbot för invånartjänster</h3>
+                            <p class="card-description">
+                                AI-driven chatbot som kan svara på vanliga frågor från invånare dygnet runt
+                                på kommunens webbplats.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="chatbot"
+                                    aria-label="Läs mer om Chatbot för invånartjänster">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="service-card" data-category="ai" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">AI-tjänst</span>
+                            <h3 class="card-title">Automatisk dokumentgranskning</h3>
+                            <p class="card-description">
+                                AI-verktyg som granskar bygglovshandlingar, ansökningar och andra dokument
+                                för att identifiera brister.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="dokument-ai"
+                                    aria-label="Läs mer om Automatisk dokumentgranskning">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="service-card" data-category="ai" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                    <line x1="12" y1="6" x2="12" y2="12"/>
+                                    <line x1="9" y1="9" x2="15" y2="9"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">AI-tjänst</span>
+                            <h3 class="card-title">Lärplattform med AI-stöd</h3>
+                            <p class="card-description">
+                                AI-baserat stöd för elever med personlig handledning, förklaringar
+                                och anpassade övningar.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="larplattform"
+                                    aria-label="Läs mer om Lärplattform med AI-stöd">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="service-card" data-category="ai" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">AI-tjänst</span>
+                            <h3 class="card-title">Prediktiv analys för underhåll</h3>
+                            <p class="card-description">
+                                AI som förutspår underhållsbehov för kommunala fastigheter och
+                                infrastruktur baserat på sensordata.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="prediktiv"
+                                    aria-label="Läs mer om Prediktiv analys för underhåll">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Digitala tjänster -->
+                    <article class="service-card" data-category="digital" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="3" y1="9" x2="21" y2="9"/>
+                                    <line x1="9" y1="21" x2="9" y2="9"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">Digital tjänst</span>
+                            <h3 class="card-title">E-tjänsteplattform</h3>
+                            <p class="card-description">
+                                Gemensam plattform för digitala tjänster och ansökningar som invånare
+                                och företag kan använda dygnet runt.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="etjanst"
+                                    aria-label="Läs mer om E-tjänsteplattform">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="service-card" data-category="digital" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">Digital tjänst</span>
+                            <h3 class="card-title">Identitets- och behörighetshantering</h3>
+                            <p class="card-description">
+                                Centraliserad hantering av användarkonton, roller och behörigheter
+                                för kommunanställda.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="identitet"
+                                    aria-label="Läs mer om Identitets- och behörighetshantering">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="service-card" data-category="digital" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">Digital tjänst</span>
+                            <h3 class="card-title">Digital arkivering</h3>
+                            <p class="card-description">
+                                Molnbaserad arkivlösning för långtidsbevarande av digitala handlingar
+                                enligt arkivlagstiftningen.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="arkiv"
+                                    aria-label="Läs mer om Digital arkivering">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="service-card" data-category="digital" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                    <line x1="8" y1="21" x2="16" y2="21"/>
+                                    <line x1="12" y1="17" x2="12" y2="21"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">Digital tjänst</span>
+                            <h3 class="card-title">Digitala möten och samarbete</h3>
+                            <p class="card-description">
+                                Plattform för videomöten, dokumentsamarbete och digital kommunikation
+                                mellan kommunernas medarbetare.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="moten"
+                                    aria-label="Läs mer om Digitala möten och samarbete">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="service-card" data-category="digital" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">Digital tjänst</span>
+                            <h3 class="card-title">Ekonomisystem</h3>
+                            <p class="card-description">
+                                Gemensamt ekonomisystem för fakturering, bokföring och
+                                ekonomisk rapportering.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="ekonomi"
+                                    aria-label="Läs mer om Ekonomisystem">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Integrationer -->
+                    <article class="service-card" data-category="integration" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="16 18 22 12 16 6"/>
+                                    <polyline points="8 6 2 12 8 18"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">Integration</span>
+                            <h3 class="card-title">API-gateway</h3>
+                            <p class="card-description">
+                                Central plattform för att koppla samman kommunernas system genom
+                                standardiserade API:er.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="api"
+                                    aria-label="Läs mer om API-gateway">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="service-card" data-category="integration" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">Integration</span>
+                            <h3 class="card-title">Meddelandehubb</h3>
+                            <p class="card-description">
+                                Integrationsplattform för säker meddelandehantering mellan
+                                system och externa parter.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="meddelande"
+                                    aria-label="Läs mer om Meddelandehubb">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="service-card" data-category="integration" role="listitem">
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+                                    <rect x="9" y="9" width="6" height="6"/>
+                                    <line x1="9" y1="1" x2="9" y2="4"/>
+                                    <line x1="15" y1="1" x2="15" y2="4"/>
+                                    <line x1="9" y1="20" x2="9" y2="23"/>
+                                    <line x1="15" y1="20" x2="15" y2="23"/>
+                                    <line x1="20" y1="9" x2="23" y2="9"/>
+                                    <line x1="20" y1="14" x2="23" y2="14"/>
+                                    <line x1="1" y1="9" x2="4" y2="9"/>
+                                    <line x1="1" y1="14" x2="4" y2="14"/>
+                                </svg>
+                            </div>
+                            <span class="card-tag">Integration</span>
+                            <h3 class="card-title">Integrationsplattform för skola</h3>
+                            <p class="card-description">
+                                Koppling mellan skoladministrativa system, lärplattformar
+                                och nationella tjänster.
+                            </p>
+                            <button class="card-btn"
+                                    aria-haspopup="dialog"
+                                    data-service="skola-integration"
+                                    aria-label="Läs mer om Integrationsplattform för skola">
+                                Läs mer
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Vill du veta mer?</h2>
+                <p>Kontakta oss för mer information om hur din kommun kan delta i samarbetet.</p>
+                <div class="cta-buttons">
+                    <a href="dokumentation.html" class="btn btn-primary">Se dokumentation</a>
+                    <a href="om-kommuna.html" class="btn btn-secondary">Om samarbetet</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal för tjänsteinformation -->
+    <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close" aria-label="Stäng">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="modal-content">
+                <h2 id="modal-title" class="modal-title"></h2>
+                <p class="modal-description"></p>
+
+                <div class="modal-details">
+                    <div class="detail-group">
+                        <h3>Målgrupp</h3>
+                        <ul class="detail-list target-list"></ul>
+                    </div>
+
+                    <div class="detail-group">
+                        <h3>Sektor</h3>
+                        <ul class="detail-list sector-list"></ul>
+                    </div>
+
+                    <div class="detail-group">
+                        <h3>Tekniska krav</h3>
+                        <ul class="detail-list tech-list"></ul>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <a href="dokumentation.html" class="btn btn-primary">Se dokumentation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kommuna</h3>
+                    <p>Ett samarbete mellan Sundsvall, Nordanstig, Hudiksvall, Ljusdal och Ånge kommuner.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Länkar</h3>
+                    <ul>
+                        <li><a href="index.html">Tjänster</a></li>
+                        <li><a href="om-kommuna.html">Om Kommuna</a></li>
+                        <li><a href="dokumentation.html">Dokumentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>E-post: <a href="mailto:info@kommuna.se">info@kommuna.se</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kommuna. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/services-data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

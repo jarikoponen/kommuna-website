@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dokumentation för Kommuna - Instruktioner och tekniska krav för att nyttja digitala tjänster">
+    <title>Dokumentation - Kommuna</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Hoppa till huvudinnehåll</a>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo" aria-label="Kommuna - Till startsidan">
+                    <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+                        <circle cx="12" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="12" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="20" cy="20" r="4" fill="#00A86B"/>
+                        <line x1="12" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="12" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                    </svg>
+                    <span class="logo-text">Kommuna</span>
+                </a>
+
+                <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Öppna meny">
+                    <span class="hamburger"></span>
+                </button>
+
+                <nav id="main-nav" class="main-nav" aria-label="Huvudnavigering">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Tjänster</a></li>
+                        <li><a href="om-kommuna.html" class="nav-link">Om Kommuna</a></li>
+                        <li><a href="dokumentation.html" class="nav-link active" aria-current="page">Dokumentation</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-hero">
+            <div class="container">
+                <h1>Dokumentation</h1>
+                <p class="page-intro">
+                    Här hittar du instruktioner, tekniska krav och guider för att komma igång
+                    med Kommunas digitala tjänster.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="tabs-container">
+                    <div class="tabs" role="tablist" aria-label="Dokumentationsflikar">
+                        <button role="tab"
+                                aria-selected="true"
+                                aria-controls="panel-kom-igang"
+                                id="tab-kom-igang"
+                                class="tab-btn active"
+                                tabindex="0">
+                            Kom igång
+                        </button>
+                        <button role="tab"
+                                aria-selected="false"
+                                aria-controls="panel-tekniska-krav"
+                                id="tab-tekniska-krav"
+                                class="tab-btn"
+                                tabindex="-1">
+                            Tekniska krav
+                        </button>
+                        <button role="tab"
+                                aria-selected="false"
+                                aria-controls="panel-sakerhet"
+                                id="tab-sakerhet"
+                                class="tab-btn"
+                                tabindex="-1">
+                            Säkerhet
+                        </button>
+                        <button role="tab"
+                                aria-selected="false"
+                                aria-controls="panel-api-dokumentation"
+                                id="tab-api-dokumentation"
+                                class="tab-btn"
+                                tabindex="-1">
+                            API-dokumentation
+                        </button>
+                        <button role="tab"
+                                aria-selected="false"
+                                aria-controls="panel-support"
+                                id="tab-support"
+                                class="tab-btn"
+                                tabindex="-1">
+                            Support
+                        </button>
+                    </div>
+
+                    <div class="tab-panels">
+                        <article role="tabpanel"
+                                 id="panel-kom-igang"
+                                 aria-labelledby="tab-kom-igang"
+                                 class="tab-panel active"
+                                 tabindex="0">
+                            <h2>Kom igång</h2>
+                            <p>
+                                För att börja använda Kommunas tjänster behöver din kommun genomgå
+                                en anslutningsprocess. Här beskriver vi stegen för att komma igång.
+                            </p>
+
+                            <h3>Steg 1: Anslutningsavtal</h3>
+                            <p>
+                                Kontakta Kommunas styrgrupp för att diskutera anslutning. Ett samarbetsavtal
+                                upprättas som reglerar ansvar, kostnader och villkor.
+                            </p>
+
+                            <h3>Steg 2: Teknisk inventering</h3>
+                            <p>
+                                En teknisk genomgång görs av kommunens befintliga IT-miljö för att
+                                identifiera integrationspunkter och eventuella anpassningsbehov.
+                            </p>
+
+                            <h3>Steg 3: Konfiguration</h3>
+                            <p>
+                                Kommunens miljö konfigureras för anslutning till Kommunas plattform.
+                                Detta inkluderar:
+                            </p>
+                            <ul>
+                                <li>Uppsättning av nätverksförbindelser (VPN eller dedikerad länk)</li>
+                                <li>Konfiguration av identitetshantering (federation mot Azure AD eller ADFS)</li>
+                                <li>Installation av eventuella lokala komponenter</li>
+                                <li>Test och verifiering av anslutningen</li>
+                            </ul>
+
+                            <h3>Steg 4: Utbildning</h3>
+                            <p>
+                                IT-personal och slutanvändare får utbildning i de tjänster som ska användas.
+                                Utbildningsmaterial finns tillgängligt digitalt.
+                            </p>
+
+                            <h3>Steg 5: Driftsättning</h3>
+                            <p>
+                                Tjänsterna aktiveras och kommunen börjar använda Kommunas plattform.
+                                Löpande support finns tillgänglig.
+                            </p>
+                        </article>
+
+                        <article role="tabpanel"
+                                 id="panel-tekniska-krav"
+                                 aria-labelledby="tab-tekniska-krav"
+                                 class="tab-panel"
+                                 tabindex="0"
+                                 hidden>
+                            <h2>Tekniska krav</h2>
+                            <p>
+                                För att kunna använda Kommunas tjänster behöver följande tekniska
+                                förutsättningar vara uppfyllda.
+                            </p>
+
+                            <h3>Nätverkskrav</h3>
+                            <div class="requirements-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Krav</th>
+                                            <th scope="col">Specifikation</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Internetanslutning</td>
+                                            <td>Minst 100 Mbit/s symmetrisk</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VPN</td>
+                                            <td>IPSec eller SSL VPN till Kommunas datacenter</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brandväggsregler</td>
+                                            <td>Utgående HTTPS (443) och specifika portar enligt tjänst</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DNS</td>
+                                            <td>Möjlighet att konfigurera intern DNS för tjänsteåtkomst</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Identitetshantering</h3>
+                            <p>
+                                Kommuna använder modern identitetsfederation för säker inloggning.
+                                Följande identitetsleverantörer stöds:
+                            </p>
+                            <ul>
+                                <li><strong>Microsoft Entra ID (Azure AD)</strong> - Rekommenderad lösning</li>
+                                <li><strong>Active Directory Federation Services (ADFS)</strong> - För on-premises-miljöer</li>
+                                <li><strong>SAML 2.0</strong> - Generellt stöd för SAML-kompatibla IdP:er</li>
+                            </ul>
+
+                            <h3>Klientkrav</h3>
+                            <p>
+                                Slutanvändare behöver moderna webbläsare för att komma åt tjänsterna:
+                            </p>
+                            <ul>
+                                <li>Microsoft Edge (senaste versionen)</li>
+                                <li>Google Chrome (senaste versionen)</li>
+                                <li>Mozilla Firefox (senaste versionen)</li>
+                                <li>Safari (senaste versionen på macOS/iOS)</li>
+                            </ul>
+                            <p>
+                                <strong>Observera:</strong> Internet Explorer stöds inte.
+                            </p>
+
+                            <h3>Krav per tjänstetyp</h3>
+                            <div class="accordion" role="region" aria-label="Tekniska krav per tjänst">
+                                <details class="accordion-item">
+                                    <summary class="accordion-header">AI-tjänster</summary>
+                                    <div class="accordion-content">
+                                        <ul>
+                                            <li>HTTPS-anslutning till Kommunas AI-gateway</li>
+                                            <li>API-nycklar för autentisering</li>
+                                            <li>Minst 4 GB RAM för lokala AI-komponenter (vid behov)</li>
+                                            <li>GPU rekommenderas för lokala modeller (NVIDIA CUDA-kompatibel)</li>
+                                        </ul>
+                                    </div>
+                                </details>
+                                <details class="accordion-item">
+                                    <summary class="accordion-header">E-tjänster</summary>
+                                    <div class="accordion-content">
+                                        <ul>
+                                            <li>Integration mot kommunens ärendehanteringssystem</li>
+                                            <li>BankID-integration för invånaridentifiering</li>
+                                            <li>SMTP-server för e-postnotifieringar</li>
+                                            <li>SSL-certifikat för säker kommunikation</li>
+                                        </ul>
+                                    </div>
+                                </details>
+                                <details class="accordion-item">
+                                    <summary class="accordion-header">Integrationsplattform</summary>
+                                    <div class="accordion-content">
+                                        <ul>
+                                            <li>RESTful API-stöd i källsystem</li>
+                                            <li>OAuth 2.0 eller API-nyckel för autentisering</li>
+                                            <li>Dokumenterade API:er för system som ska integreras</li>
+                                            <li>Testmiljö för verifiering av integrationer</li>
+                                        </ul>
+                                    </div>
+                                </details>
+                            </div>
+                        </article>
+
+                        <article role="tabpanel"
+                                 id="panel-sakerhet"
+                                 aria-labelledby="tab-sakerhet"
+                                 class="tab-panel"
+                                 tabindex="0"
+                                 hidden>
+                            <h2>Säkerhet</h2>
+                            <p>
+                                Säkerhet är en grundpelare i Kommunas arkitektur. Här beskrivs de
+                                säkerhetsåtgärder som tillämpas.
+                            </p>
+
+                            <h3>Dataskydd</h3>
+                            <ul>
+                                <li>All data krypteras i transit (TLS 1.3) och i vila (AES-256)</li>
+                                <li>Personuppgifter hanteras enligt GDPR</li>
+                                <li>Data lagras inom EU (Sverige när möjligt)</li>
+                                <li>Regelbundna säkerhetskopior med geografisk redundans</li>
+                            </ul>
+
+                            <h3>Åtkomstkontroll</h3>
+                            <ul>
+                                <li>Rollbaserad åtkomstkontroll (RBAC)</li>
+                                <li>Multifaktorautentisering (MFA) för administrativa funktioner</li>
+                                <li>Principen om minsta behörighet tillämpas</li>
+                                <li>Automatisk utloggning efter inaktivitet</li>
+                            </ul>
+
+                            <h3>Övervakning och loggning</h3>
+                            <ul>
+                                <li>Centraliserad logghantering med 12 månaders retention</li>
+                                <li>Realtidsövervakning av säkerhetshändelser</li>
+                                <li>Automatiska varningar vid avvikande beteende</li>
+                                <li>Regelbundna säkerhetsgranskningar och penetrationstester</li>
+                            </ul>
+
+                            <h3>Incidenthantering</h3>
+                            <p>
+                                Kommuna har etablerade rutiner för incidenthantering med definierade
+                                SLA:er för responstid och eskalering. Vid säkerhetsincidenter
+                                kontaktas berörda kommuner omedelbart.
+                            </p>
+                        </article>
+
+                        <article role="tabpanel"
+                                 id="panel-api-dokumentation"
+                                 aria-labelledby="tab-api-dokumentation"
+                                 class="tab-panel"
+                                 tabindex="0"
+                                 hidden>
+                            <h2>API-dokumentation</h2>
+                            <p>
+                                Kommunas tjänster exponeras via moderna RESTful API:er. Här beskrivs
+                                grunderna för att integrera mot plattformen.
+                            </p>
+
+                            <h3>Autentisering</h3>
+                            <p>
+                                Alla API-anrop kräver autentisering via OAuth 2.0 eller API-nycklar.
+                            </p>
+                            <pre class="code-block"><code>Authorization: Bearer &lt;access_token&gt;</code></pre>
+
+                            <h3>Bas-URL</h3>
+                            <pre class="code-block"><code>https://api.kommuna.se/v1/</code></pre>
+
+                            <h3>Vanliga endpoints</h3>
+                            <div class="api-endpoints">
+                                <div class="endpoint">
+                                    <span class="method get">GET</span>
+                                    <code>/services</code>
+                                    <p>Lista alla tillgängliga tjänster</p>
+                                </div>
+                                <div class="endpoint">
+                                    <span class="method get">GET</span>
+                                    <code>/services/{id}</code>
+                                    <p>Hämta information om en specifik tjänst</p>
+                                </div>
+                                <div class="endpoint">
+                                    <span class="method post">POST</span>
+                                    <code>/ai/analyze</code>
+                                    <p>Skicka data för AI-analys</p>
+                                </div>
+                                <div class="endpoint">
+                                    <span class="method get">GET</span>
+                                    <code>/integrations/status</code>
+                                    <p>Kontrollera status för integrationer</p>
+                                </div>
+                            </div>
+
+                            <h3>Felhantering</h3>
+                            <p>
+                                API:et returnerar standardiserade felmeddelanden i JSON-format:
+                            </p>
+                            <pre class="code-block"><code>{
+  "error": {
+    "code": "UNAUTHORIZED",
+    "message": "Ogiltig eller utgången token",
+    "details": "Förnya din access token och försök igen"
+  }
+}</code></pre>
+
+                            <h3>Rate limiting</h3>
+                            <p>
+                                API-anrop begränsas till 1000 förfrågningar per minut per kommun.
+                                Headers indikerar kvarvarande kvot:
+                            </p>
+                            <pre class="code-block"><code>X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 985
+X-RateLimit-Reset: 1640000000</code></pre>
+                        </article>
+
+                        <article role="tabpanel"
+                                 id="panel-support"
+                                 aria-labelledby="tab-support"
+                                 class="tab-panel"
+                                 tabindex="0"
+                                 hidden>
+                            <h2>Support</h2>
+                            <p>
+                                Kommuna erbjuder support för alla anslutna kommuner.
+                            </p>
+
+                            <h3>Supportnivåer</h3>
+                            <div class="support-levels">
+                                <div class="support-card">
+                                    <h4>Nivå 1 - Användarsupport</h4>
+                                    <p>Hjälp med grundläggande frågor och felsökning.</p>
+                                    <ul>
+                                        <li>E-post: <a href="mailto:support@kommuna.se">support@kommuna.se</a></li>
+                                        <li>Telefon: 060-XX XX XX</li>
+                                        <li>Öppettider: Vardagar 08:00-17:00</li>
+                                    </ul>
+                                </div>
+                                <div class="support-card">
+                                    <h4>Nivå 2 - Teknisk support</h4>
+                                    <p>Avancerad felsökning och integrationsstöd.</p>
+                                    <ul>
+                                        <li>E-post: <a href="mailto:teknik@kommuna.se">teknik@kommuna.se</a></li>
+                                        <li>Ärendehanteringssystem för spårning</li>
+                                        <li>Responstid: Inom 4 arbetstimmar</li>
+                                    </ul>
+                                </div>
+                                <div class="support-card">
+                                    <h4>Nivå 3 - Akut support</h4>
+                                    <p>Kritiska driftstörningar som påverkar verksamheten.</p>
+                                    <ul>
+                                        <li>Jourtelefon: 070-XXX XX XX</li>
+                                        <li>Tillgänglig dygnet runt</li>
+                                        <li>Responstid: Inom 30 minuter</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3>Självservice</h3>
+                            <p>
+                                Många frågor kan besvaras genom våra självserviceresurser:
+                            </p>
+                            <ul>
+                                <li>Kunskapsdatabas med vanliga frågor och svar</li>
+                                <li>Videoguider för vanliga uppgifter</li>
+                                <li>Statuspage för realtidsinformation om tjänsternas tillgänglighet</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kommuna</h3>
+                    <p>Ett samarbete mellan Sundsvall, Nordanstig, Hudiksvall, Ljusdal och Ånge kommuner.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Länkar</h3>
+                    <ul>
+                        <li><a href="index.html">Tjänster</a></li>
+                        <li><a href="om-kommuna.html">Om Kommuna</a></li>
+                        <li><a href="dokumentation.html">Dokumentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>E-post: <a href="mailto:info@kommuna.se">info@kommuna.se</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kommuna. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
