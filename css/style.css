@@ -585,6 +585,9 @@ a:focus-visible {
 }
 
 .card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     padding: var(--space-3) var(--space-4);
     background: var(--color-primary-light);
@@ -592,19 +595,69 @@ a:focus-visible {
     border: none;
     border-radius: var(--radius-md);
     font-weight: var(--font-weight-medium);
+    text-decoration: none;
     cursor: pointer;
     transition: all var(--transition-fast);
     min-height: 44px;
 }
 
 .card-btn:hover {
-    background: var(--color-primary);
-    color: white;
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    text-decoration: underline;
 }
 
 .card-btn:focus-visible {
     outline: none;
     box-shadow: var(--focus-ring);
+}
+
+/* Section Intro */
+.section-intro {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-6);
+    max-width: 65ch;
+}
+
+/* Upcoming Services Section */
+.services-upcoming {
+    background: var(--color-background-alt);
+}
+
+/* Upcoming Service Card */
+.service-card-upcoming {
+    background: var(--color-background);
+    border: 2px dashed var(--color-border);
+    opacity: 0.85;
+}
+
+.service-card-upcoming:hover {
+    box-shadow: var(--shadow-md);
+    transform: none;
+    border-color: var(--color-text-light);
+}
+
+.card-icon-upcoming {
+    background: var(--color-background-alt);
+    color: var(--color-text-light);
+}
+
+.card-tag-upcoming {
+    background: var(--color-warning);
+    color: white;
+}
+
+.card-status {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-background-alt);
+    color: var(--color-text-muted);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    border: 1px dashed var(--color-border);
 }
 
 /* --------------------------------------------------------------------------
@@ -1445,6 +1498,7 @@ details[open] .accordion-header::before {
 
     .cta-buttons {
         flex-direction: row;
+        justify-content: center;
     }
 
     .municipality-grid {
