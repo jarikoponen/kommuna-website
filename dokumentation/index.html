@@ -219,102 +219,242 @@
                                  tabindex="0"
                                  hidden>
                             <h2>Tekniska krav</h2>
+
+                            <h3>1. Inledning</h3>
                             <p>
-                                För att kunna använda Kommunas tjänster behöver följande tekniska
-                                förutsättningar vara uppfyllda.
+                                För att använda de digitala tjänster och AI-tjänster som finns inom Kommuna behöver kommunen kunna ansluta till dessa genom federativ inloggning. Den standard som används för autentisering inom Kommuna är OpenID Connect (OIDC). I denna dokumentation beskrivs de krav som finns för anslutning på en generell nivå. En enskild digital tjänst kan ha särskilda krav, men uppfylls de som beskrivs här är det generellt inga problem att använda alla tjänster inom Kommuna.
                             </p>
 
-                            <h3>Nätverkskrav</h3>
+                            <h3>2. Översikt av federativ inloggning</h3>
+                            <h4>2.1 Grundprinciper</h4>
+                            <p>Den federativa inloggningsmodellen bygger på följande principer:</p>
+                            <ul>
+                                <li>Varje kommun styr självständigt vilka autentiseringsmetoder som ska gälla för sina medarbetare.</li>
+                                <li>De delade tjänsterna inom Kommuna lagrar inga lösenord eller autentiseringsuppgifter.</li>
+                                <li>Användare autentiseras alltid via sin hemkommuns identitetstjänst.</li>
+                                <li>OIDC används som standardprotokoll för all federativ kommunikation.</li>
+                            </ul>
+
+                            <h4>2.2 Rollfördelning</h4>
+                            <p>Integrationen bygger på den standardiserade rollfördelningen inom OIDC-ekosystemet:</p>
                             <div class="requirements-table">
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th scope="col">Krav</th>
-                                            <th scope="col">Specifikation</th>
+                                            <th scope="col">Roll</th>
+                                            <th scope="col">OIDC-terminologi</th>
+                                            <th scope="col">Aktör</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Internetanslutning</td>
-                                            <td>Minst 100 Mbit/s symmetrisk</td>
+                                            <td>Tjänsteleverantör</td>
+                                            <td>Relying Party (RP)</td>
+                                            <td>Tjänster inom Kommuna</td>
                                         </tr>
                                         <tr>
-                                            <td>VPN</td>
-                                            <td>IPSec eller SSL VPN till Kommunas datacenter</td>
+                                            <td>Identitetsleverantör</td>
+                                            <td>OpenID Provider (OP)</td>
+                                            <td>Respektive kommun</td>
                                         </tr>
                                         <tr>
-                                            <td>Brandväggsregler</td>
-                                            <td>Utgående HTTPS (443) och specifika portar enligt tjänst</td>
-                                        </tr>
-                                        <tr>
-                                            <td>DNS</td>
-                                            <td>Möjlighet att konfigurera intern DNS för tjänsteåtkomst</td>
+                                            <td>Slutanvändare</td>
+                                            <td>End-User</td>
+                                            <td>Kommunens medarbetare</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
 
-                            <h3>Identitetshantering</h3>
-                            <p>
-                                Kommuna använder modern identitetsfederation för säker inloggning.
-                                Följande identitetsleverantörer stöds:
-                            </p>
+                            <h3>3. Krav på anslutande kommun</h3>
+                            <h4>3.1 Rollen som OpenID Provider</h4>
+                            <p>För att ansluta till tjänster inom Kommuna krävs att kommunen agerar som OpenID Provider (OP) i OIDC-federationen. Detta innebär att kommunen ansvarar för:</p>
                             <ul>
-                                <li><strong>Microsoft Entra ID (Azure AD)</strong> - Rekommenderad lösning</li>
-                                <li><strong>Active Directory Federation Services (ADFS)</strong> - För on-premises-miljöer</li>
-                                <li><strong>SAML 2.0</strong> - Generellt stöd för SAML-kompatibla IdP:er</li>
+                                <li>Autentisering av sina medarbetare enligt kommunens egen säkerhetspolicy.</li>
+                                <li>Utfärdande av ID-tokens och access tokens till tjänsterna (Relying Party).</li>
+                                <li>Tillhandahållande av användarinformation (claims) enligt överenskommet format.</li>
+                                <li>Val och konfiguration av autentiseringsmetoder (t.ex. lösenord, MFA, e-legitimation).</li>
                             </ul>
 
-                            <h3>Klientkrav</h3>
-                            <p>
-                                Slutanvändare behöver moderna webbläsare för att komma åt tjänsterna:
-                            </p>
-                            <ul>
-                                <li>Microsoft Edge (senaste versionen)</li>
-                                <li>Google Chrome (senaste versionen)</li>
-                                <li>Mozilla Firefox (senaste versionen)</li>
-                                <li>Safari (senaste versionen på macOS/iOS)</li>
-                            </ul>
-                            <p>
-                                <strong>Observera:</strong> Internet Explorer stöds inte.
-                            </p>
-
-                            <h3>Krav per tjänstetyp</h3>
-                            <div class="accordion" role="region" aria-label="Tekniska krav per tjänst">
-                                <details class="accordion-item">
-                                    <summary class="accordion-header">AI-tjänster</summary>
-                                    <div class="accordion-content">
-                                        <ul>
-                                            <li>HTTPS-anslutning till Kommunas AI-gateway</li>
-                                            <li>API-nycklar för autentisering</li>
-                                            <li>Minst 4 GB RAM för lokala AI-komponenter (vid behov)</li>
-                                            <li>GPU rekommenderas för lokala modeller (NVIDIA CUDA-kompatibel)</li>
-                                        </ul>
-                                    </div>
-                                </details>
-                                <details class="accordion-item">
-                                    <summary class="accordion-header">E-tjänster</summary>
-                                    <div class="accordion-content">
-                                        <ul>
-                                            <li>Integration mot kommunens ärendehanteringssystem</li>
-                                            <li>BankID-integration för invånaridentifiering</li>
-                                            <li>SMTP-server för e-postnotifieringar</li>
-                                            <li>SSL-certifikat för säker kommunikation</li>
-                                        </ul>
-                                    </div>
-                                </details>
-                                <details class="accordion-item">
-                                    <summary class="accordion-header">Integrationsplattform</summary>
-                                    <div class="accordion-content">
-                                        <ul>
-                                            <li>RESTful API-stöd i källsystem</li>
-                                            <li>OAuth 2.0 eller API-nyckel för autentisering</li>
-                                            <li>Dokumenterade API:er för system som ska integreras</li>
-                                            <li>Testmiljö för verifiering av integrationer</li>
-                                        </ul>
-                                    </div>
-                                </details>
+                            <h4>3.2 Befintliga plattformar med OIDC-stöd</h4>
+                            <p>De flesta kommuner har redan infrastruktur på plats som kan agera OpenID Provider. Vanligt förekommande plattformar inom kommunal sektor inkluderar:</p>
+                            <div class="requirements-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Plattform</th>
+                                            <th scope="col">Kommentar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Microsoft Entra ID</td>
+                                            <td>Tidigare Azure AD. Inbyggt OIDC-stöd. Vanlig i Microsoft 365-miljöer.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nexus HAG</td>
+                                            <td>Hybrid Access Gateway. Stödjer OIDC, SAML och andra federationsprotokoll.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MobilityGuard OneGate</td>
+                                            <td>IAM-plattform med fullt OIDC-stöd. Vanlig inom offentlig sektor.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Keycloak</td>
+                                            <td>Open source IAM-lösning med komplett OIDC-implementation.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ADFS</td>
+                                            <td>Active Directory Federation Services. Stödjer OIDC från version 2016.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PhenixID</td>
+                                            <td>Svensk IAM-lösning med OIDC-stöd. Används av flera kommuner.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                            <p>
+                                <strong>Rekommendation:</strong> Kontakta er IT-avdelning eller IAM-ansvarig för att identifiera vilken plattform som redan finns på plats och kan konfigureras för anslutning till Kommuna. I de flesta fall krävs endast en klientregistrering i befintlig infrastruktur.
+                            </p>
+
+                            <h3>4. Tekniska krav på OpenID Provider</h3>
+                            <h4>4.1 Protokollkrav</h4>
+                            <p>Kommunens OpenID Provider (OP) ska uppfylla följande krav:</p>
+                            <ul>
+                                <li>Stödja OpenID Connect Core 1.0-specifikationen.</li>
+                                <li>Implementera Authorization Code Flow med PKCE (Proof Key for Code Exchange).</li>
+                                <li>Tillhandahålla en publik Discovery-endpoint (/.well-known/openid-configuration).</li>
+                                <li>Stödja HTTPS med giltigt TLS-certifikat (minst TLS 1.2).</li>
+                                <li>Signera ID-tokens med RS256 eller ES256.</li>
+                            </ul>
+
+                            <h4>4.2 Obligatoriska endpoints</h4>
+                            <p>Följande endpoints ska exponeras av kommunens OpenID Provider:</p>
+                            <div class="requirements-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Endpoint</th>
+                                            <th scope="col">Beskrivning</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Authorization Endpoint</td>
+                                            <td>Initierar autentiseringsflödet och returnerar authorization code.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Token Endpoint</td>
+                                            <td>Utbyter authorization code mot access token och ID token.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UserInfo Endpoint</td>
+                                            <td>Returnerar claims om den autentiserade användaren.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>JWKS Endpoint</td>
+                                            <td>Tillhandahåller publika nycklar för verifiering av signerade tokens.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>End Session Endpoint</td>
+                                            <td>Hanterar utloggning och sessionsterminering (rekommenderas).</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h4>4.3 Obligatoriska claims</h4>
+                            <p>ID-token ska innehålla följande claims för korrekt identifiering av användaren:</p>
+                            <div class="requirements-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Claim</th>
+                                            <th scope="col">Typ</th>
+                                            <th scope="col">Beskrivning</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>sub</td>
+                                            <td>Obligatorisk</td>
+                                            <td>Unikt och beständigt användar-ID.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>email</td>
+                                            <td>Obligatorisk</td>
+                                            <td>Användarens e-postadress.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>name</td>
+                                            <td>Rekommenderad</td>
+                                            <td>Fullständigt namn för visning i gränssnittet.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>given_name</td>
+                                            <td>Valfri</td>
+                                            <td>Förnamn.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>family_name</td>
+                                            <td>Valfri</td>
+                                            <td>Efternamn.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>groups</td>
+                                            <td>Valfri</td>
+                                            <td>Gruppmedlemskap för behörighetsstyrning.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h4>4.4 Obligatoriska scopes</h4>
+                            <p>Tjänsterna inom Kommuna kommer att begära följande scopes vid autentisering:</p>
+                            <ul>
+                                <li><strong>openid</strong> – Obligatoriskt för OIDC-flödet.</li>
+                                <li><strong>profile</strong> – För att erhålla namn och profilinformation.</li>
+                                <li><strong>email</strong> – För att erhålla e-postadress.</li>
+                            </ul>
+
+                            <h3>5. Klientregistrering</h3>
+                            <p>Följande uppgifter behöver utbytas vid registrering:</p>
+                            <h4>5.1 Från kommunen till Kommuna</h4>
+                            <ul>
+                                <li>URL till Discovery-endpoint (/.well-known/openid-configuration).</li>
+                                <li>Alternativt: Issuer URL om Discovery stöds.</li>
+                                <li>Eventuella specifika konfigurationskrav.</li>
+                            </ul>
+                            <h4>5.2 Från Kommuna till kommunen</h4>
+                            <ul>
+                                <li><strong>Client ID</strong> – Unik identifierare för tjänsten som klient.</li>
+                                <li><strong>Client Secret</strong> – Hemlighet för autentisering av klienten (om applicable).</li>
+                                <li><strong>Redirect URI</strong> – URL dit användaren omdirigeras efter autentisering.</li>
+                                <li><strong>Post-logout Redirect URI</strong> – URL för omdirigering efter utloggning.</li>
+                            </ul>
+
+                            <h3>6. Autentiseringsflöde</h3>
+                            <p>Tjänsterna inom Kommuna använder Authorization Code Flow med PKCE enligt följande steg:</p>
+                            <ol>
+                                <li>Användaren initierar inloggning i tjänsten.</li>
+                                <li>Tjänsten (Relying Party) omdirigerar till kommunens OpenID Provider.</li>
+                                <li>Användaren autentiserar sig enligt kommunens policy.</li>
+                                <li>OpenID Provider returnerar en authorization code till tjänsten.</li>
+                                <li>Tjänsten utbyter authorization code mot tokens via Token Endpoint.</li>
+                                <li>Tjänsten validerar ID-token och extraherar användarinformation.</li>
+                                <li>Användaren får tillgång till tjänsten.</li>
+                            </ol>
+
+                            <h3>7. Säkerhetskrav</h3>
+                            <ul>
+                                <li>Alla kommunikationskanaler ska använda HTTPS med TLS 1.2 eller högre.</li>
+                                <li>ID-tokens ska signeras med asymmetrisk kryptering (RS256 eller ES256).</li>
+                                <li>Access tokens bör ha en begränsad livslängd (rekommenderat: 1 timme).</li>
+                                <li>Refresh tokens ska stödjas för att upprätthålla sessioner utan ny inloggning.</li>
+                                <li>PKCE ska användas för att skydda mot authorization code interception.</li>
+                                <li>State-parameter ska valideras för att förhindra CSRF-attacker.</li>
+                            </ul>
                         </article>
 
                         <article role="tabpanel"
