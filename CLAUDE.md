@@ -62,6 +62,26 @@ window.servicesData = {
 2. For modal-only services: add `data-service="service-id"` to button and add entry to `js/services-data.js`
 3. For dedicated page services: create `tjanster/[name]/index.html` and link directly (see Eneo as template)
 4. Asset paths from service pages use `../../css/style.css` and `../../js/main.js`
+5. Add Open Graph metadata (see below)
+
+## Open Graph
+
+All pages must include Open Graph metadata for social media sharing. Add these meta tags in the `<head>` section:
+
+```html
+<!-- Open Graph -->
+<meta property="og:title" content="Page Title">
+<meta property="og:description" content="Page description">
+<meta property="og:image" content="https://kommuna.se/images/[image-name]-og.png">
+<meta property="og:type" content="website">
+```
+
+**Important:**
+- `og:image` must use **absolute URLs** (e.g., `https://kommuna.se/images/...`)
+- Images should be 1200x630 pixels (PNG format)
+- General pages use `kommuna-og.png`, service pages use service-specific images (e.g., `eneo-og.png`)
+
+**Image files location:** `images/` directory contains both SVG source icons and PNG files for Open Graph.
 
 ## Language
 
