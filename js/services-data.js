@@ -61,7 +61,7 @@ och tydligare information.`,
         techRequirements: [
             'Integration mot elevregister',
             'Kartdata för ruttberäkning',
-            'E-tjänst för ansökningar',
+            'Digital tjänst för ansökningar',
             'SMS/e-post för kommunikation'
         ]
     }
