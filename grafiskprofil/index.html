@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kommuna – Grafisk Profil & Designguide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-primary: #0066CC;
+    --blue-dark: #004A99;
+    --blue-deeper: #00336B;
+    --blue-light: #E8F2FF;
+    --blue-mist: #F4F8FD;
+    --green-accent: #00A86B;
+    --green-light: #E6F7F0;
+    --slate: #2D3748;
+    --slate-light: #64748B;
+    --warm-white: #FAFBFD;
+    --border: #E2E8F0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--slate);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    background: linear-gradient(165deg, var(--blue-deeper) 0%, var(--blue-primary) 50%, #0077E6 100%);
+    color: white; padding: 5rem 2rem 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0,168,107,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 30%, rgba(255,255,255,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block; background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 100px;
+    padding: 0.4rem 1.2rem; font-size: 0.8rem; letter-spacing: 0.08em;
+    text-transform: uppercase; font-weight: 500; margin-bottom: 2rem;
+    backdrop-filter: blur(8px);
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.8rem;
+  }
+  .hero p { font-size: 1.15rem; opacity: 0.8; max-width: 500px; margin: 0 auto; font-weight: 300; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+  section { padding: 4rem 0; }
+  section + section { border-top: 1px solid var(--border); }
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--blue-primary); font-weight: 600; margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif; font-size: 2rem;
+    font-weight: 400; color: var(--slate); margin-bottom: 0.6rem;
+  }
+  .section-desc { color: var(--slate-light); font-size: 0.95rem; max-width: 600px; margin-bottom: 2.5rem; }
+  .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .logo-card {
+    border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+    background: white; transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .logo-card:hover { box-shadow: 0 12px 40px rgba(0,102,204,0.1); transform: translateY(-2px); }
+  .logo-preview {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 220px; padding: 2rem;
+  }
+  .logo-preview.light { background: #FFFFFF; }
+  .logo-preview.dark { background: var(--blue-deeper); }
+  .logo-preview.mist { background: var(--blue-mist); }
+  .logo-preview.gradient { background: linear-gradient(135deg, var(--blue-primary), var(--blue-dark)); }
+  .logo-info { padding: 1.2rem 1.5rem; border-top: 1px solid var(--border); }
+  .logo-info h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .logo-info p { font-size: 0.8rem; color: var(--slate-light); }
+  .logo-tag {
+    display: inline-block; font-size: 0.65rem; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 4px;
+    font-weight: 600; margin-top: 0.5rem;
+  }
+  .tag-primary { background: var(--blue-light); color: var(--blue-primary); }
+  .tag-tagline { background: var(--green-light); color: var(--green-accent); }
+  .tagline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .tagline-card {
+    background: white; border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.5rem; transition: border-color 0.3s;
+  }
+  .tagline-card:hover { border-color: var(--blue-primary); }
+  .tagline-number { font-size: 0.7rem; font-weight: 700; color: var(--blue-primary); letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+  .tagline-text { font-family: 'DM Serif Display', serif; font-size: 1.35rem; line-height: 1.3; color: var(--slate); margin-bottom: 0.6rem; }
+  .tagline-rationale { font-size: 0.82rem; color: var(--slate-light); line-height: 1.5; }
+  .color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+  .color-swatch { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: white; }
+  .color-block { height: 90px; display: flex; align-items: flex-end; padding: 0.6rem 0.8rem; }
+  .color-block span {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
+    padding: 0.15rem 0.5rem; border-radius: 4px; backdrop-filter: blur(4px);
+  }
+  .on-dark span { background: rgba(255,255,255,0.2); color: white; }
+  .on-light span { background: rgba(0,0,0,0.08); color: var(--slate); }
+  .color-meta { padding: 0.8rem; }
+  .color-meta .name { font-size: 0.82rem; font-weight: 600; }
+  .color-meta .hex { font-size: 0.75rem; color: var(--slate-light); font-family: 'DM Sans', monospace; }
+  .type-demo {
+    background: white; border: 1px solid var(--border); border-radius: 16px;
+    padding: 2.5rem; margin-bottom: 1.5rem;
+  }
+  .type-demo h2 { font-family: 'DM Serif Display', serif; font-size: 2.5rem; font-weight: 400; margin-bottom: 0.3rem; color: var(--slate); }
+  .type-demo .body-sample { font-size: 1rem; color: var(--slate-light); max-width: 600px; }
+  .type-spec { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+  .type-spec-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.5rem; }
+  .type-spec-card .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue-primary); font-weight: 600; margin-bottom: 0.4rem; }
+  .type-spec-card .font-name { font-size: 1.1rem; font-weight: 600; }
+  .type-spec-card .usage { font-size: 0.8rem; color: var(--slate-light); margin-top: 0.2rem; }
+  .logo-card.full-width { grid-column: 1 / -1; }
+  .logo-card.full-width .logo-preview { min-height: 160px; }
+  .footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--slate-light); font-size: 0.82rem; }
+  .footer strong { color: var(--slate); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">Grafisk Profil – Version 1.0</div>
+  <svg width="360" height="100" viewBox="0 0 360 100" style="display:block; margin:0 auto 1.5rem;">
+    <!-- Total content: symbol ~53px + gap 14px + text ~160px = ~227px. Offset: (360-227)/2 ≈ 67 -->
+    <g transform="translate(53, 10) scale(2)">
+      <line x1="12" y1="12" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+      <line x1="28" y1="12" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+      <line x1="12" y1="28" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+      <line x1="28" y1="28" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+      <circle cx="12" cy="12" r="5.25" fill="white"/>
+      <circle cx="28" cy="12" r="5.25" fill="white"/>
+      <circle cx="12" cy="28" r="5.25" fill="white"/>
+      <circle cx="28" cy="28" r="5.25" fill="white"/>
+    </g>
+    <text x="134" y="62" font-family="'DM Sans', sans-serif" font-weight="700" font-size="36" fill="white" letter-spacing="-0.5">Kommuna</text>
+  </svg>
+  <p>Designguide och grafisk identitet för det interkommunala samarbetet mellan kommuner.</p>
+</header>
+
+<div class="container">
+
+<!-- ═══ TAGLINES ═══ -->
+<section>
+  <div class="section-label">01 — Tagline-förslag</div>
+  <div class="section-title">Kortare taglines</div>
+  <div class="section-desc">Baserat på Kommunas verksamhet — delning av digitala och AI-tjänster mellan Sundsvall, Nordanstig, Hudiksvall, Ljusdal och Ånge — föreslår vi följande taglines.</div>
+  <div class="tagline-grid">
+    <div class="tagline-card">
+      <div class="tagline-number">FÖRSLAG A</div>
+      <div class="tagline-text">Bättre tillsammans</div>
+      <div class="tagline-rationale">Kort, positiv och fångar kärnan — samarbete gör kommunerna starkare. Fungerar brett, från AI-plattformen Eneo till alla delade tjänster.</div>
+    </div>
+    <div class="tagline-card">
+      <div class="tagline-number">FÖRSLAG B</div>
+      <div class="tagline-text">Delad digital kraft</div>
+      <div class="tagline-rationale">Betonar det konkreta — att man delar tekniska resurser och att det ger styrka. Tydlig koppling till digitalisering utan att bli tekniskt.</div>
+    </div>
+    <div class="tagline-card">
+      <div class="tagline-number">FÖRSLAG C</div>
+      <div class="tagline-text">Öppna lösningar, gemensam nytta</div>
+      <div class="tagline-rationale">Speglar öppenhets- och delningsprinciperna som betonas på kommuna.se. Kommunicerar att samarbetet gynnar alla parter.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LOGOS ═══ -->
+<section>
+  <div class="section-label">02 — Logotyp</div>
+  <div class="section-title">Logotypvarianter</div>
+  <div class="section-desc">Logotypen bygger på fyra sammankopplade noder — en symbol för de samverkande kommunerna. Symbolen står alltid fristående med texten placerad bredvid eller under, aldrig inuti.</div>
+
+  <div class="logo-grid">
+
+    <!-- ═══ Primary Horizontal + tagline ═══ -->
+    <div class="logo-card full-width">
+      <div class="logo-preview light">
+        <!--
+          Symbol: original viewBox 0 0 40 40, center at (20,20), scaled ×1.6
+          Scaled center offset: 20 × 1.6 = 32
+          To center symbol vertically in 80px SVG: ty = 40 - 32 = 8
+          Symbol visual right edge: tx + 28*1.6 + 5.25*1.6 = tx + 53.2
+          With tx=4: right edge ≈ 57.2, so text starts at ~70
+          Text: font-size 30, cap-height ~21px, visual center = baseline - 10.5
+          To align text visual center at y=40: baseline = 50.5 ≈ 50
+        -->
+        <svg width="440" height="80" viewBox="0 0 440 80">
+          <g transform="translate(4, 8) scale(1.6)">
+            <line x1="12" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="28" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="12" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="28" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="5.25" fill="#0066CC"/>
+            <circle cx="28" cy="12" r="5.25" fill="#0066CC"/>
+            <circle cx="12" cy="28" r="5.25" fill="#0066CC"/>
+            <circle cx="28" cy="28" r="5.25" fill="#0066CC"/>
+          </g>
+          <text x="80" y="50" font-family="'DM Sans', sans-serif" font-weight="700" font-size="30" fill="#0066CC" letter-spacing="-0.5">Kommuna</text>
+          <line x1="254" y1="24" x2="254" y2="56" stroke="#CBD5E1" stroke-width="1"/>
+          <text x="270" y="46" font-family="'DM Sans', sans-serif" font-weight="400" font-size="13" fill="#64748B" letter-spacing="0.3">Bättre tillsammans</text>
+        </svg>
+      </div>
+      <div class="logo-info">
+        <h3>Primär logotyp — Horisontell med tagline A</h3>
+        <p>Standardversion. Symbol, ordmärke och tagline i linje. För sidhuvud, dokument och e-postsignaturer.</p>
+        <span class="logo-tag tag-primary">Rekommenderad</span>
+      </div>
+    </div>
+
+    <!-- ═══ Horizontal on dark ═══ -->
+    <div class="logo-card full-width">
+      <div class="logo-preview dark">
+        <svg width="440" height="80" viewBox="0 0 440 80">
+          <g transform="translate(4, 8) scale(1.6)">
+            <line x1="12" y1="12" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+            <line x1="28" y1="12" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+            <line x1="12" y1="28" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+            <line x1="28" y1="28" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="5.25" fill="white"/>
+            <circle cx="28" cy="12" r="5.25" fill="white"/>
+            <circle cx="12" cy="28" r="5.25" fill="white"/>
+            <circle cx="28" cy="28" r="5.25" fill="white"/>
+          </g>
+          <text x="80" y="50" font-family="'DM Sans', sans-serif" font-weight="700" font-size="30" fill="white" letter-spacing="-0.5">Kommuna</text>
+          <line x1="254" y1="24" x2="254" y2="56" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <text x="270" y="46" font-family="'DM Sans', sans-serif" font-weight="400" font-size="13" fill="rgba(255,255,255,0.6)" letter-spacing="0.3">Bättre tillsammans</text>
+        </svg>
+      </div>
+      <div class="logo-info">
+        <h3>Inverterad — Mörk bakgrund</h3>
+        <p>Vit version för användning på mörka eller färgade ytor.</p>
+        <span class="logo-tag tag-primary">Inverterad</span>
+      </div>
+    </div>
+
+    <!-- ═══ Horizontal no tagline ═══ -->
+    <div class="logo-card full-width">
+      <div class="logo-preview light">
+        <svg width="260" height="80" viewBox="0 0 260 80">
+          <g transform="translate(4, 8) scale(1.6)">
+            <line x1="12" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="28" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="12" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="28" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="5.25" fill="#0066CC"/>
+            <circle cx="28" cy="12" r="5.25" fill="#0066CC"/>
+            <circle cx="12" cy="28" r="5.25" fill="#0066CC"/>
+            <circle cx="28" cy="28" r="5.25" fill="#0066CC"/>
+          </g>
+          <text x="80" y="50" font-family="'DM Sans', sans-serif" font-weight="700" font-size="30" fill="#0066CC" letter-spacing="-0.5">Kommuna</text>
+        </svg>
+      </div>
+      <div class="logo-info">
+        <h3>Horisontell — Utan tagline</h3>
+        <p>Renare version utan tagline. Bra för navigering, sidhuvud och mindre format.</p>
+        <span class="logo-tag tag-primary">Kompakt horisontell</span>
+      </div>
+    </div>
+
+    <!-- ═══ Stacked: Tagline A ═══ -->
+    <!--
+      Stacked layout centering:
+      SVG width=200, horizontal center=100
+      Symbol center x in original = 20. Scaled: 20 × 1.6 = 32.
+      tx = 100 - 32 = 68
+      Symbol occupies roughly y: ty+10.8 to ty+53.2 (scaled). With ty=8: y 18.8 to 61.2
+      Text at y=86 (below symbol with gap), tagline at y=110
+    -->
+    <div class="logo-card">
+      <div class="logo-preview light">
+        <svg width="200" height="150" viewBox="0 0 200 150">
+          <g transform="translate(68, 8) scale(1.6)">
+            <line x1="12" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="28" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="12" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="28" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="5.25" fill="#0066CC"/>
+            <circle cx="28" cy="12" r="5.25" fill="#0066CC"/>
+            <circle cx="12" cy="28" r="5.25" fill="#0066CC"/>
+            <circle cx="28" cy="28" r="5.25" fill="#0066CC"/>
+          </g>
+          <text x="100" y="90" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="26" fill="#0066CC" letter-spacing="-0.5">Kommuna</text>
+          <text x="100" y="116" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="8.5" fill="#64748B" letter-spacing="2.5">BÄTTRE TILLSAMMANS</text>
+        </svg>
+      </div>
+      <div class="logo-info">
+        <h3>Stående — Tagline A</h3>
+        <p>"Bättre tillsammans" — för presentationer och omslag.</p>
+        <span class="logo-tag tag-tagline">Tagline A</span>
+      </div>
+    </div>
+
+    <!-- ═══ Stacked: Tagline B ═══ -->
+    <div class="logo-card">
+      <div class="logo-preview mist">
+        <svg width="200" height="150" viewBox="0 0 200 150">
+          <g transform="translate(68, 8) scale(1.6)">
+            <line x1="12" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="28" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="12" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <line x1="28" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="5.25" fill="#0066CC"/>
+            <circle cx="28" cy="12" r="5.25" fill="#0066CC"/>
+            <circle cx="12" cy="28" r="5.25" fill="#0066CC"/>
+            <circle cx="28" cy="28" r="5.25" fill="#0066CC"/>
+          </g>
+          <text x="100" y="90" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="26" fill="#0066CC" letter-spacing="-0.5">Kommuna</text>
+          <text x="100" y="116" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="8.5" fill="#64748B" letter-spacing="2.5">DELAD DIGITAL KRAFT</text>
+        </svg>
+      </div>
+      <div class="logo-info">
+        <h3>Stående — Tagline B</h3>
+        <p>"Delad digital kraft" — betonar resursdelning.</p>
+        <span class="logo-tag tag-tagline">Tagline B</span>
+      </div>
+    </div>
+
+    <!-- ═══ Stacked: Tagline C on dark ═══ -->
+    <div class="logo-card">
+      <div class="logo-preview dark">
+        <svg width="240" height="150" viewBox="0 0 240 150">
+          <g transform="translate(88, 8) scale(1.6)">
+            <line x1="12" y1="12" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+            <line x1="28" y1="12" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+            <line x1="12" y1="28" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+            <line x1="28" y1="28" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="5.25" fill="white"/>
+            <circle cx="28" cy="12" r="5.25" fill="white"/>
+            <circle cx="12" cy="28" r="5.25" fill="white"/>
+            <circle cx="28" cy="28" r="5.25" fill="white"/>
+          </g>
+          <text x="120" y="90" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="26" fill="white" letter-spacing="-0.5">Kommuna</text>
+          <text x="120" y="116" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="7.5" fill="rgba(255,255,255,0.55)" letter-spacing="1.8">ÖPPNA LÖSNINGAR, GEMENSAM NYTTA</text>
+        </svg>
+      </div>
+      <div class="logo-info">
+        <h3>Stående — Tagline C, inverterad</h3>
+        <p>"Öppna lösningar, gemensam nytta" — på mörk bakgrund.</p>
+        <span class="logo-tag tag-tagline">Tagline C</span>
+      </div>
+    </div>
+
+    <!-- ═══ Icon: Blue ═══ -->
+    <div class="logo-card">
+      <div class="logo-preview light">
+        <svg width="80" height="80" viewBox="0 0 40 40">
+          <line x1="12" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+          <line x1="28" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+          <line x1="12" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+          <line x1="28" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="5.25" fill="#0066CC"/>
+          <circle cx="28" cy="12" r="5.25" fill="#0066CC"/>
+          <circle cx="12" cy="28" r="5.25" fill="#0066CC"/>
+          <circle cx="28" cy="28" r="5.25" fill="#0066CC"/>
+        </svg>
+      </div>
+      <div class="logo-info">
+        <h3>Ikon — Ljus bakgrund</h3>
+        <p>Enbart symbolen. Favicon, appikon och sociala medier.</p>
+        <span class="logo-tag tag-primary">Ikon</span>
+      </div>
+    </div>
+
+    <!-- ═══ Icon: White on gradient ═══ -->
+    <div class="logo-card">
+      <div class="logo-preview gradient">
+        <svg width="80" height="80" viewBox="0 0 40 40">
+          <line x1="12" y1="12" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+          <line x1="28" y1="12" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+          <line x1="12" y1="28" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+          <line x1="28" y1="28" x2="20" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="5.25" fill="white"/>
+          <circle cx="28" cy="12" r="5.25" fill="white"/>
+          <circle cx="12" cy="28" r="5.25" fill="white"/>
+          <circle cx="28" cy="28" r="5.25" fill="white"/>
+        </svg>
+      </div>
+      <div class="logo-info">
+        <h3>Ikon — Färgad bakgrund</h3>
+        <p>Vit symbol på gradient. För profilbilder och märkning.</p>
+        <span class="logo-tag tag-primary">Ikon inverterad</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ COLORS ═══ -->
+<section>
+  <div class="section-label">03 — Färgpalett</div>
+  <div class="section-title">Färger</div>
+  <div class="section-desc">Paletten bygger på den befintliga blå tonen (#0066CC) från originallogotypen. Grön används sparsamt som accentfärg.</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-block on-dark" style="background:#0066CC;"><span>Primär</span></div><div class="color-meta"><div class="name">Kommuna Blå</div><div class="hex">#0066CC</div></div></div>
+    <div class="color-swatch"><div class="color-block on-dark" style="background:#004A99;"><span>Djup</span></div><div class="color-meta"><div class="name">Blå Djup</div><div class="hex">#004A99</div></div></div>
+    <div class="color-swatch"><div class="color-block on-dark" style="background:#00336B;"><span>Mörk</span></div><div class="color-meta"><div class="name">Blå Natt</div><div class="hex">#00336B</div></div></div>
+    <div class="color-swatch"><div class="color-block on-light" style="background:#E8F2FF;"><span>Ljus</span></div><div class="color-meta"><div class="name">Blå Ljus</div><div class="hex">#E8F2FF</div></div></div>
+    <div class="color-swatch"><div class="color-block on-dark" style="background:#00A86B;"><span>Accent</span></div><div class="color-meta"><div class="name">Grön Accent</div><div class="hex">#00A86B</div></div></div>
+    <div class="color-swatch"><div class="color-block on-dark" style="background:#2D3748;"><span>Text</span></div><div class="color-meta"><div class="name">Grafitgrå</div><div class="hex">#2D3748</div></div></div>
+  </div>
+</section>
+
+<!-- ═══ TYPOGRAPHY ═══ -->
+<section>
+  <div class="section-label">04 — Typografi</div>
+  <div class="section-title">Typsnitt</div>
+  <div class="section-desc">Två typsnitt skapar kontrast mellan det formella och det tillgängliga.</div>
+  <div class="type-demo">
+    <h2>DM Serif Display</h2>
+    <p class="body-sample">DM Sans används som brödtext. Det är ett modernt, lättläst sans-serif som kommunicerar öppenhet och professionalitet — precis som Kommunas digitala tjänster.</p>
+  </div>
+  <div class="type-spec">
+    <div class="type-spec-card"><div class="label">Rubriktypsnitt</div><div class="font-name" style="font-family:'DM Serif Display',serif; font-weight:400;">DM Serif Display</div><div class="usage">Rubriker, titlar och dekorativa element.</div></div>
+    <div class="type-spec-card"><div class="label">Logotyp & brödtext</div><div class="font-name">DM Sans</div><div class="usage">Logotyp, ordmärke, brödtext, knappar och UI-element.</div></div>
+  </div>
+</section>
+
+<!-- ═══ USAGE ═══ -->
+<section>
+  <div class="section-label">05 — Riktlinjer</div>
+  <div class="section-title">Användning</div>
+  <div class="section-desc">Grundläggande regler för hur logotypen ska användas för att säkerställa en konsekvent visuell identitet.</div>
+  <div class="tagline-grid">
+    <div class="tagline-card"><div class="tagline-number">FRIZON</div><div class="tagline-rationale">Logotypen ska alltid omges av en frizon motsvarande minst nodernas radie runtom. Inga andra grafiska element eller text ska placeras inom frizonen.</div></div>
+    <div class="tagline-card"><div class="tagline-number">MINSTA STORLEK</div><div class="tagline-rationale">Logotypen med tagline bör inte användas mindre än 120px bredd digitalt eller 30mm i tryck. Ikonversionen kan användas ned till 24px.</div></div>
+    <div class="tagline-card"><div class="tagline-number">PLACERING</div><div class="tagline-rationale">Texten "Kommuna" ska aldrig placeras inuti eller ovanpå symbolen. Ordmärket placeras alltid till höger om (horisontell) eller under (stående) symbolen.</div></div>
+    <div class="tagline-card"><div class="tagline-number">INTE TILLÅTET</div><div class="tagline-rationale">Rotera, skeva, ändra proportioner eller färger på logotypen. Använd aldrig logotypen med skuggor, 3D-effekter eller mot fotografiska bakgrunder med låg kontrast.</div></div>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <p><strong>Kommuna</strong> — Grafisk profil v1.0 &middot; Sundsvall · Nordanstig · Hudiksvall · Ljusdal · Ånge</p>
+</footer>
+
+</body>
+</html>
