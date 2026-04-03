@@ -698,6 +698,55 @@ a:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
+   Partners / Municipality Logos
+   -------------------------------------------------------------------------- */
+.partners-section {
+    padding: var(--space-12) 0;
+    background: var(--color-background-alt);
+    border-top: 1px solid var(--color-border-light);
+}
+
+.partners-section h2 {
+    text-align: center;
+    font-size: var(--font-size-xl);
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-8);
+}
+
+.partners-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
+}
+
+.partners-logos a {
+    display: block;
+    transition: opacity var(--transition-fast);
+}
+
+.partners-logos a:hover {
+    opacity: 0.7;
+}
+
+.partners-logos img {
+    height: 36px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all var(--transition-fast);
+}
+
+.partners-logos a:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
    Modal
    -------------------------------------------------------------------------- */
 .modal-overlay {
@@ -1512,6 +1561,15 @@ details[open] .accordion-header::before {
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .partners-logos {
+        gap: var(--space-8);
+    }
+
+    .partners-logos img {
+        height: 48px;
+        max-width: 180px;
+    }
 }
 
 /* --------------------------------------------------------------------------
@@ -1631,6 +1689,15 @@ details[open] .accordion-header::before {
     /* Footer */
     .footer-content {
         grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .partners-logos {
+        gap: var(--space-8) var(--space-10);
+    }
+
+    .partners-logos img {
+        height: 60px;
+        max-width: 220px;
     }
 }
 
