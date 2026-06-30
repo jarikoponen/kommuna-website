@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 708" width="1320" height="708" role="img" aria-label="Lösningsarkitektur för Generisk ärendehantering">
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7E8A9C"/></marker>
+  <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#B0863A"/></marker>
+</defs>
+<rect x="0" y="0" width="1320" height="708" fill="#FFFFFF"/>
+<text x="660" y="40" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="22" font-weight="700" fill="#0A3D6E">Lösningsarkitektur — Generisk ärendehantering</text>
+<text x="660" y="60" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" fill="#5A6573">Från webb-app via kärn-API:er till stödtjänster, master-data och externa system. Pilar visar anrop.</text>
+<rect x="465" y="82" width="390" height="58" rx="10" fill="#DCEBFB" stroke="#0066CC" stroke-width="2"/>
+<text x="660" y="108" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="16" font-weight="700" fill="#0A3D6E">Webb-app</text>
+<text x="660" y="126" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A3D6E" opacity="0.8">web-app-draken-public</text>
+<rect x="1090" y="82" width="200" height="58" rx="10" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="1190" y="108" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="14" font-weight="700" fill="#2A3340">SimulatorServer</text>
+<text x="1190" y="126" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#2A3340" opacity="0.8">testverktyg</text>
+<path d="M855,111 C980,111 980,111 1090,111" fill="none" stroke="#B7C0CC" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<text x="972" y="104" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#8A94A2">test</text>
+<text x="40" y="180" text-anchor="[object Object]" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" font-weight="700" fill="#46505E">KÄRN-API:er — anropas direkt av webb-appen</text>
+<rect x="40" y="196" width="180" height="72" rx="10" fill="#DFF3EA" stroke="#00A86B" stroke-width="2"/>
+<text x="130" y="229" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700" fill="#0A5A3C">CaseStatus</text>
+<text x="130" y="247" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A5A3C" opacity="0.8">statusinformation</text>
+<rect x="252" y="196" width="180" height="72" rx="10" fill="#DFF3EA" stroke="#00A86B" stroke-width="2"/>
+<text x="342" y="229" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700" fill="#0A5A3C">SupportManagement</text>
+<text x="342" y="247" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A5A3C" opacity="0.8">ärendehantering (kärna)</text>
+<rect x="464" y="196" width="180" height="72" rx="10" fill="#DFF3EA" stroke="#00A86B" stroke-width="2"/>
+<text x="554" y="229" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700" fill="#0A5A3C">Party</text>
+<text x="554" y="247" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A5A3C" opacity="0.8">id-översättning</text>
+<rect x="676" y="196" width="180" height="72" rx="10" fill="#DFF3EA" stroke="#00A86B" stroke-width="2"/>
+<text x="766" y="229" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700" fill="#0A5A3C">BillingPreprocessor</text>
+<text x="766" y="247" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A5A3C" opacity="0.8">fakturering</text>
+<rect x="888" y="196" width="180" height="72" rx="10" fill="#DFF3EA" stroke="#00A86B" stroke-width="2"/>
+<text x="978" y="229" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700" fill="#0A5A3C">Templating</text>
+<text x="978" y="247" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A5A3C" opacity="0.8">mallar / PDF</text>
+<rect x="1100" y="196" width="180" height="72" rx="10" fill="#DFF3EA" stroke="#00A86B" stroke-width="2"/>
+<text x="1190" y="229" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700" fill="#0A5A3C">Relations</text>
+<text x="1190" y="247" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A5A3C" opacity="0.8">kopplingar</text>
+<path d="M660,140 C660,168 130,168 130,196" fill="none" stroke="#7FA8D8" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M660,140 C660,168 342,168 342,196" fill="none" stroke="#7FA8D8" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M660,140 C660,168 554,168 554,196" fill="none" stroke="#7FA8D8" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M660,140 C660,168 766,168 766,196" fill="none" stroke="#7FA8D8" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M660,140 C660,168 978,168 978,196" fill="none" stroke="#7FA8D8" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M660,140 C660,168 1190,168 1190,196" fill="none" stroke="#7FA8D8" stroke-width="1.6" marker-end="url(#arr)"/>
+<rect x="40" y="372" width="1240" height="150" rx="12" fill="#F7F8FA" stroke="#C7CFDA" stroke-width="1.5"/>
+<text x="58" y="396" text-anchor="start" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="700" fill="#46505E">INTERNA STÖDTJÄNSTER — anropas av kärn-API:erna (främst SupportManagement)</text>
+<rect x="70" y="410" width="216" height="42" rx="8" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.4"/>
+<text x="178" y="436" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#2A3340">Messaging</text>
+<rect x="306" y="410" width="216" height="42" rx="8" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.4"/>
+<text x="414" y="436" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#2A3340">Notes</text>
+<rect x="542" y="410" width="216" height="42" rx="8" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.4"/>
+<text x="650" y="436" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#2A3340">Eventlog</text>
+<rect x="778" y="410" width="216" height="42" rx="8" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.4"/>
+<text x="886" y="436" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#2A3340">EmailReader</text>
+<rect x="1014" y="410" width="216" height="42" rx="8" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.4"/>
+<text x="1122" y="436" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#2A3340">WebMessageCollector</text>
+<rect x="70" y="464" width="216" height="42" rx="8" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.4"/>
+<text x="178" y="490" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#2A3340">MessageExchange</text>
+<rect x="306" y="464" width="216" height="42" rx="8" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.4"/>
+<text x="414" y="490" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#2A3340">MessagingSettings</text>
+<rect x="542" y="464" width="216" height="42" rx="8" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.4"/>
+<text x="650" y="490" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#2A3340">AccessMapper</text>
+<rect x="778" y="464" width="216" height="42" rx="8" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.4"/>
+<text x="886" y="490" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#2A3340">JsonSchema</text>
+<rect x="1014" y="464" width="216" height="42" rx="8" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.4"/>
+<text x="1122" y="490" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#2A3340">CaseManagement</text>
+<rect x="40" y="560" width="760" height="110" rx="12" fill="#FCF6E6" stroke="#E2C77E" stroke-width="1.5"/>
+<text x="58" y="584" text-anchor="start" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="700" fill="#6B4E10">MASTER-DATA API:er — kommun-specifik, kräver utvecklingsinsats</text>
+<rect x="58" y="604" width="132" height="46" rx="8" fill="#FBEFD3" stroke="#C8911B" stroke-width="1.4"/>
+<text x="124" y="632" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600" fill="#6B4E10">Citizen</text>
+<rect x="202" y="604" width="132" height="46" rx="8" fill="#FBEFD3" stroke="#C8911B" stroke-width="1.4"/>
+<text x="268" y="632" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600" fill="#6B4E10">Employee</text>
+<rect x="346" y="604" width="132" height="46" rx="8" fill="#FBEFD3" stroke="#C8911B" stroke-width="1.4"/>
+<text x="412" y="632" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600" fill="#6B4E10">LegalEntity</text>
+<rect x="490" y="604" width="132" height="46" rx="8" fill="#FBEFD3" stroke="#C8911B" stroke-width="1.4"/>
+<text x="556" y="632" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600" fill="#6B4E10">ActiveDirectory</text>
+<rect x="634" y="604" width="132" height="46" rx="8" fill="#FBEFD3" stroke="#C8911B" stroke-width="1.4"/>
+<text x="700" y="632" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600" fill="#6B4E10">Estateinfo</text>
+<rect x="820" y="560" width="460" height="110" rx="12" fill="#F0F0F0" stroke="#B9BFC6" stroke-width="1.5"/>
+<text x="838" y="584" text-anchor="start" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="700" fill="#3A3F45">EXTERNA SYSTEM</text>
+<rect x="838" y="604" width="140" height="46" rx="8" fill="#ECECEC" stroke="#9AA0A6" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="908" y="632" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#3A3F45">Open-E Platform</text>
+<rect x="986" y="604" width="140" height="46" rx="8" fill="#ECECEC" stroke="#9AA0A6" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="1056" y="632" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#3A3F45">Raindance</text>
+<rect x="1134" y="604" width="140" height="46" rx="8" fill="#ECECEC" stroke="#9AA0A6" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="1204" y="632" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#3A3F45">Metadatakatalogen</text>
+<path d="M342,268 C342,339 178,339 178,410" fill="none" stroke="#AEB8C6" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M342,268 C342,339 414,339 414,410" fill="none" stroke="#AEB8C6" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M342,268 C342,339 650,339 650,410" fill="none" stroke="#AEB8C6" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M342,268 C342,339 886,339 886,410" fill="none" stroke="#AEB8C6" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M342,268 C342,339 1122,339 1122,410" fill="none" stroke="#AEB8C6" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M342,268 C342,366 178,366 178,464" fill="none" stroke="#AEB8C6" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M342,268 C342,366 414,366 414,464" fill="none" stroke="#AEB8C6" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M342,268 C342,366 650,366 650,464" fill="none" stroke="#AEB8C6" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M342,268 C342,366 886,366 886,464" fill="none" stroke="#AEB8C6" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M130,268 C130,366 1122,366 1122,464" fill="none" stroke="#AEB8C6" stroke-width="1.3" marker-end="url(#arr)"/>
+<path d="M766,268 C766,339 178,339 178,410" fill="none" stroke="#AEB8C6" stroke-width="1.3" marker-end="url(#arr)"/>
+<path d="M130,268 C130,296 342,296 342,268" fill="none" stroke="#B0863A" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr2)"/>
+<path d="M130,268 C130,308 554,308 554,268" fill="none" stroke="#B0863A" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr2)"/>
+<path d="M766,268 C766,296 554,296 554,268" fill="none" stroke="#B0863A" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr2)"/>
+<path d="M554,268 C554,436 124,436 124,604" fill="none" stroke="#D2A23E" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M554,268 C554,436 412,436 412,604" fill="none" stroke="#D2A23E" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M342,268 C342,436 110,436 110,604" fill="none" stroke="#D2A23E" stroke-width="1.3" marker-end="url(#arr)"/>
+<path d="M342,268 C342,436 268,436 268,604" fill="none" stroke="#D2A23E" stroke-width="1.3" marker-end="url(#arr)"/>
+<path d="M130,268 C130,436 908,436 908,604" fill="none" stroke="#9AA0A6" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<path d="M766,268 C766,436 1056,436 1056,604" fill="none" stroke="#9AA0A6" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<path d="M268,650 C268,627 1204,627 1204,604" fill="none" stroke="#9AA0A6" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<path d="M124,650 C124,627 1204,627 1204,604" fill="none" stroke="#9AA0A6" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<rect x="40" y="674" width="22" height="14" rx="3" fill="#DCEBFB" stroke="#0066CC" stroke-width="1.5"/>
+<text x="68" y="686" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" fill="#46505E">Klient / webb-app</text>
+<rect x="210" y="674" width="22" height="14" rx="3" fill="#DFF3EA" stroke="#00A86B" stroke-width="1.5"/>
+<text x="238" y="686" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" fill="#46505E">Kärn-API (publikt repo)</text>
+<rect x="420" y="674" width="22" height="14" rx="3" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.5"/>
+<text x="448" y="686" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" fill="#46505E">Stödtjänst (publikt repo)</text>
+<rect x="630" y="674" width="22" height="14" rx="3" fill="#FBEFD3" stroke="#C8911B" stroke-width="1.5"/>
+<text x="658" y="686" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" fill="#46505E">Master-data (ej publikt)</text>
+<rect x="830" y="674" width="22" height="14" rx="3" fill="#ECECEC" stroke="#9AA0A6" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="858" y="686" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" fill="#46505E">Externt system</text>
+</svg>

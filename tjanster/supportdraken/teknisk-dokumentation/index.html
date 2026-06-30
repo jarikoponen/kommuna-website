@@ -89,34 +89,184 @@
                 </article>
 
                 <article class="content-block">
+                    <h2>Lösningsarkitektur</h2>
+                    <p>
+                        Översikt över hur webb-appen, kärn-API:erna, de interna stödtjänsterna, master-data och
+                        externa system hänger ihop. Pilarna visar anrop. Bilden är härledd från webb-appen,
+                        API-listan och respektive API:s beskrivning av vad det i sin tur anropar.
+                    </p>
+                    <figure class="architecture-figure">
+                        <img src="../../../images/arkitektur-generisk-arendehantering.svg"
+                             alt="Lösningsarkitektur för Generisk ärendehantering: webb-appen anropar kärn-API:erna SupportManagement, CaseStatus, BillingPreprocessor, Party, Templating och Relations, som i sin tur anropar interna stödtjänster, master-data API:er och externa system.">
+                        <figcaption>
+                            Lösningsarkitektur — från webb-app via kärn-API:er till stödtjänster, master-data och externa system.
+                        </figcaption>
+                    </figure>
+                </article>
+
+                <article class="content-block">
                     <h2>API:er som lösningen integrerar med</h2>
                     <p>
                         Helhetslösningen integrerar med ett antal API:er. De flesta finns som öppna repon på
-                        Sundsvalls kommuns GitHub och länkas direkt nedan.
+                        Sundsvalls kommuns GitHub. Tabellen nedan beskriver vad varje API gör och länkar till
+                        källkoden. Kärn-API:erna anropas direkt av webb-appen, medan stödtjänsterna i sin tur
+                        anropas av kärn-API:erna (främst SupportManagement).
                     </p>
-                    <ul>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-support-management" target="_blank" rel="noopener">SupportManagement</a></li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-templating" target="_blank" rel="noopener">Templating</a></li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-party" target="_blank" rel="noopener">Party</a></li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-relations" target="_blank" rel="noopener">Relations</a></li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-case-status" target="_blank" rel="noopener">CaseStatus</a></li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-billing-preprocessor" target="_blank" rel="noopener">BillingPreprocessor</a></li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">SimulatorServer</a></li>
-                    </ul>
+                    <div class="requirements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">API</th>
+                                    <th scope="col">Typ</th>
+                                    <th scope="col">Beskrivning</th>
+                                    <th scope="col">Källkod</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>SupportManagement</td>
+                                    <td>Kärn-API</td>
+                                    <td>Navet i lösningen – registrerar och hanterar supportärenden, statusar och kommunikation med intressenter.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-support-management" target="_blank" rel="noopener">api-service-support-management</a></td>
+                                </tr>
+                                <tr>
+                                    <td>CaseStatus</td>
+                                    <td>Kärn-API</td>
+                                    <td>Levererar aktuell statusinformation om ärenden från underliggande system.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-case-status" target="_blank" rel="noopener">api-service-case-status</a></td>
+                                </tr>
+                                <tr>
+                                    <td>BillingPreprocessor</td>
+                                    <td>Kärn-API</td>
+                                    <td>Hanterar intern och extern fakturering och skickar underlag till Raindance.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-billing-preprocessor" target="_blank" rel="noopener">api-service-billing-preprocessor</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Party</td>
+                                    <td>Kärn-API</td>
+                                    <td>Översätter mellan person-/organisationsnummer (legalId) och partyId.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-party" target="_blank" rel="noopener">api-service-party</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Templating</td>
+                                    <td>Kärn-API</td>
+                                    <td>Lagrar och renderar mallar till text och PDF (Pebble- och Word-mallar).</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-templating" target="_blank" rel="noopener">api-service-templating</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Relations</td>
+                                    <td>Kärn-API</td>
+                                    <td>Lagrar relationer och kopplingar mellan ärenden och andra resurser.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-relations" target="_blank" rel="noopener">api-service-relations</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Messaging</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Skickar meddelanden via e-post, SMS och fysiska brev.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-messaging" target="_blank" rel="noopener">api-service-messaging</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Notes</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Lagrar och hämtar anteckningar kopplade till en organisation eller medborgare.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-notes" target="_blank" rel="noopener">api-service-notes</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Eventlog</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Centraliserad händelselogg för spårbarhet och uppföljning.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-eventlog" target="_blank" rel="noopener">api-service-eventlog</a></td>
+                                </tr>
+                                <tr>
+                                    <td>EmailReader</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Läser inkommande e-post från brevlådor på en Exchange-server.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-email-reader" target="_blank" rel="noopener">api-service-email-reader</a></td>
+                                </tr>
+                                <tr>
+                                    <td>WebMessageCollector</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Samlar in meddelanden från Open-E Platform (e-tjänster).</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-web-message-collector" target="_blank" rel="noopener">api-service-web-message-collector</a></td>
+                                </tr>
+                                <tr>
+                                    <td>MessageExchange</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Håller konversationer och meddelandetrådar.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-message-exchange" target="_blank" rel="noopener">api-service-message-exchange</a></td>
+                                </tr>
+                                <tr>
+                                    <td>MessagingSettings</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Tillhandahåller kommun-specifika inställningar för messaging.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-messaging-settings" target="_blank" rel="noopener">api-service-messaging-settings</a></td>
+                                </tr>
+                                <tr>
+                                    <td>AccessMapper</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Översätter Active Directory-grupper till interna behörighetsgrupper.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-access-mapper" target="_blank" rel="noopener">api-service-access-mapper</a></td>
+                                </tr>
+                                <tr>
+                                    <td>JsonSchema</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Tillhandahåller JSON-Schema och validering av data.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-json-schema" target="_blank" rel="noopener">api-service-json-schema</a></td>
+                                </tr>
+                                <tr>
+                                    <td>CaseManagement</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Integrationslager mellan klienter och olika ärendehanteringssystem.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-casemanagement" target="_blank" rel="noopener">api-service-casemanagement</a></td>
+                                </tr>
+                                <tr>
+                                    <td>SimulatorServer</td>
+                                    <td>Testverktyg</td>
+                                    <td>Simulatorserver för att testa olika svar (status, fördröjning och svarsinnehåll).</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">api-service-simulator-server</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <h3>API:er utan publikt repo</h3>
+                    <h3>Master-data API:er utan publikt repo</h3>
                     <p>
                         Följande API:er hanterar kommun-specifik master-data och har därför inget publikt repo.
                         För att få dessa på plats krävs en utvecklingsinsats anpassad efter den egna kommunens
                         källsystem.
                     </p>
-                    <ul>
-                        <li>Citizen</li>
-                        <li>ActiveDirectory</li>
-                        <li>Employee</li>
-                        <li>LegalEntity</li>
-                        <li>Estateinfo</li>
-                    </ul>
+                    <div class="requirements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">API</th>
+                                    <th scope="col">Beskrivning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Citizen</td>
+                                    <td>Medborgarinformation – uppslag och grunddata om privatpersoner.</td>
+                                </tr>
+                                <tr>
+                                    <td>ActiveDirectory</td>
+                                    <td>Användar- och behörighetsinformation från katalogtjänsten.</td>
+                                </tr>
+                                <tr>
+                                    <td>Employee</td>
+                                    <td>Medarbetarinformation, hämtas från Metadatakatalogen.</td>
+                                </tr>
+                                <tr>
+                                    <td>LegalEntity</td>
+                                    <td>Information om organisationer och juridiska personer.</td>
+                                </tr>
+                                <tr>
+                                    <td>Estateinfo</td>
+                                    <td>Fastighets- och adressinformation.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </article>
 
                 <p>
