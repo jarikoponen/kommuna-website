@@ -104,6 +104,8 @@
                     </figure>
                 </article>
 
+                <br>
+
                 <article class="content-block">
                     <h2>API:er som lösningen integrerar med</h2>
                     <p>
@@ -111,6 +113,12 @@
                         Sundsvalls kommuns GitHub. Tabellen nedan beskriver vad varje API gör och länkar till
                         källkoden. Kärn-API:erna anropas direkt av webb-appen, medan stödtjänsterna i sin tur
                         anropas av kärn-API:erna (främst SupportManagement).
+                    </p>
+                    <p>
+                        Alla integrationer är inte alltid nödvändiga – vilka som behövs beror på hur lösningen
+                        ska användas. Till exempel behöver <strong>BillingPreprocessor</strong> bara användas om
+                        man vill kunna trigga fakturering från lösningen, och <strong>WebMessageCollector</strong>
+                        är bara aktuell om man använder Open ePlatform som extern lösning för ärenderegistrering.
                     </p>
                     <div class="requirements-table">
                         <table>
