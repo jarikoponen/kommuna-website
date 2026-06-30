@@ -64,10 +64,10 @@
                     </ol>
                 </nav>
                 <span class="service-tag">Teknisk dokumentation</span>
-                <h1>Teknisk dokumentation</h1>
+                <h1>Teknisk dokumentation - Generisk ärendehantering</h1>
                 <p class="page-intro">
-                    Här samlar vi länkar till de öppna källkodsrepon på GitHub som bygger upp Generisk ärendehantering,
-                    samt vilka API:er respektive webb-app integrerar med.
+                    Här samlar vi länkar till de öppna källkodsrepon på GitHub som tillsammans bygger upp
+                    helhetslösningen, samt de API:er som lösningen integrerar med.
                 </p>
             </div>
         </section>
@@ -77,8 +77,9 @@
                 <article class="content-block">
                     <h2>Webb-appen</h2>
                     <p>
-                        Webb-apparna ligger i ett gemensamt repo som innehåller flera webb-appar.
-                        Följande webb-appar mappar mot Generisk ärendehantering.
+                        Webb-apparna ligger i ett gemensamt repo som innehåller flera webb-appar. Tillsammans bygger
+                        de upp en supportlösning som – tack vare att den är konfigurerbar – kan användas i många
+                        olika verksamheter, från kontaktcenter och intern support till lön, pension och rekrytering.
                     </p>
                     <p>
                         <a href="https://github.com/Sundsvallskommun/web-app-draken-public" target="_blank" rel="noopener">
@@ -88,107 +89,33 @@
                 </article>
 
                 <article class="content-block">
-                    <h2>API:er per webb-app</h2>
+                    <h2>API:er som lösningen integrerar med</h2>
                     <p>
-                        Under varje webb-app listas de API:er som webb-appen måste integrera med. De flesta API:er
-                        finns som öppna repon på Sundsvalls kommuns GitHub och länkas direkt nedan. Vissa API:er
-                        (t ex Citizen, ActiveDirectory, Employee, LegalEntity och Estateinfo) har inget publikt repo
-                        och listas därför utan länk.
+                        Helhetslösningen integrerar med ett antal API:er. De flesta finns som öppna repon på
+                        Sundsvalls kommuns GitHub och länkas direkt nedan.
                     </p>
-
-                    <h3>För KS (Kontakt Sundsvall)</h3>
                     <ul>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-case-data" target="_blank" rel="noopener">CaseData</a></li>
                         <li><a href="https://github.com/Sundsvallskommun/api-service-support-management" target="_blank" rel="noopener">SupportManagement</a></li>
-                        <li>Citizen</li>
-                        <li>ActiveDirectory</li>
                         <li><a href="https://github.com/Sundsvallskommun/api-service-templating" target="_blank" rel="noopener">Templating</a></li>
-                        <li>Estateinfo</li>
                         <li><a href="https://github.com/Sundsvallskommun/api-service-party" target="_blank" rel="noopener">Party</a></li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">SimulatorServer</a></li>
-                        <li>LegalEntity</li>
                         <li><a href="https://github.com/Sundsvallskommun/api-service-relations" target="_blank" rel="noopener">Relations</a></li>
                         <li><a href="https://github.com/Sundsvallskommun/api-service-case-status" target="_blank" rel="noopener">CaseStatus</a></li>
-                        <li>Employee</li>
-                    </ul>
-
-                    <h3>För LOP (Lön och pension)</h3>
-                    <ul>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-support-management" target="_blank" rel="noopener">SupportManagement</a></li>
-                        <li>Citizen</li>
-                        <li>ActiveDirectory</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-templating" target="_blank" rel="noopener">Templating</a></li>
-                        <li>LegalEntity</li>
-                        <li>Employee</li>
                         <li><a href="https://github.com/Sundsvallskommun/api-service-billing-preprocessor" target="_blank" rel="noopener">BillingPreprocessor</a></li>
                         <li><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">SimulatorServer</a></li>
                     </ul>
 
-                    <h3>För ROB (Rekrytering och bemanning)</h3>
+                    <h3>API:er utan publikt repo</h3>
+                    <p>
+                        Följande API:er hanterar kommun-specifik master-data och har därför inget publikt repo.
+                        För att få dessa på plats krävs en utvecklingsinsats anpassad efter den egna kommunens
+                        källsystem.
+                    </p>
                     <ul>
-                        <li>ActiveDirectory</li>
-                        <li>Citizen</li>
-                        <li>Employee</li>
-                        <li>LegalEntity</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">SimulatorServer</a></li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-support-management" target="_blank" rel="noopener">SupportManagement</a></li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-templating" target="_blank" rel="noopener">Templating</a></li>
-                    </ul>
-
-                    <h3>För KA (Kontakt Ånge)</h3>
-                    <ul>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-support-management" target="_blank" rel="noopener">SupportManagement</a></li>
                         <li>Citizen</li>
                         <li>ActiveDirectory</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-templating" target="_blank" rel="noopener">Templating</a></li>
-                        <li>LegalEntity</li>
                         <li>Employee</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">SimulatorServer</a></li>
-                    </ul>
-
-                    <h3>För IK (Intern kundtjänst)</h3>
-                    <ul>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-support-management" target="_blank" rel="noopener">SupportManagement</a></li>
-                        <li>Citizen</li>
-                        <li>ActiveDirectory</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-templating" target="_blank" rel="noopener">Templating</a></li>
                         <li>LegalEntity</li>
-                        <li>Employee</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">SimulatorServer</a></li>
-                    </ul>
-
-                    <h3>För MSVA (MittSverige Vatten &amp; avfall)</h3>
-                    <ul>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-support-management" target="_blank" rel="noopener">SupportManagement</a></li>
-                        <li>Citizen</li>
-                        <li>ActiveDirectory</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-templating" target="_blank" rel="noopener">Templating</a></li>
-                        <li>LegalEntity</li>
-                        <li>Employee</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">SimulatorServer</a></li>
-                    </ul>
-
-                    <h3>För SE (Servicecenter Ekonomi)</h3>
-                    <ul>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-support-management" target="_blank" rel="noopener">SupportManagement</a></li>
-                        <li>Citizen</li>
-                        <li>ActiveDirectory</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-templating" target="_blank" rel="noopener">Templating</a></li>
-                        <li>LegalEntity</li>
-                        <li>Employee</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">SimulatorServer</a></li>
-                    </ul>
-
-                    <h3>För BOU (Barn- och utbildningsförvaltningen)</h3>
-                    <ul>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-support-management" target="_blank" rel="noopener">SupportManagement</a></li>
-                        <li>Citizen</li>
-                        <li>ActiveDirectory</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-templating" target="_blank" rel="noopener">Templating</a></li>
-                        <li>LegalEntity</li>
-                        <li>Employee</li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-relations" target="_blank" rel="noopener">Relations</a></li>
-                        <li><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">SimulatorServer</a></li>
+                        <li>Estateinfo</li>
                     </ul>
                 </article>
 
