@@ -115,6 +115,9 @@
                                 <li><strong>Behörighetsstyrning</strong> - Se och hantera bara de ärenden du ska se, inget annat</li>
                                 <li><strong>Ärendeprocess</strong> - Processmotorn säkrar ärendets livscykel på ett säkert och transparent sätt</li>
                                 <li><strong>Diarieföring</strong> - Inbyggt diariestöd - inga integrationer mot andra diariesystem krävs</li>
+                                <li><strong>Ärendetyper</strong> - Stöd för nytt parkeringstillstånd, förnyelse, borttappat tillstånd och överklagan</li>
+                                <li><strong>Beslutsmallar</strong> - Utredningar och beslut skrivs med färdiga mallar och renderas som PDF-dokument</li>
+                                <li><strong>Tillståndsregister</strong> - Beviljade tillstånd registreras centralt så att giltighet kan kontrolleras och förnyelser kopplas till tidigare tillstånd</li>
                             </ul>
                         </article>
 
@@ -122,13 +125,43 @@
                             <h2>Så fungerar det</h2>
                             <p>
                                 Ett ärende registreras antingen automatiskt via inkommen e-post till en funktionsbrevlåda, via en integrerad e-tjänst
-                                eller genom registrering direkt i applikationen. Ärendehanteringen följer sedan en fördefinierad process där så många steg som möjligt
-                                automatiseras. Återkoppling till intressenter sker antingen via e-post, som ett meddelande till den e-tjänst där meddelandet registrerats,
-                                eller via SMS.
+                                eller genom registrering direkt i applikationen. Tjänsten hanterar fyra ärendetyper: ansökan om nytt
+                                parkeringstillstånd, förnyelse av tillstånd, anmälan om borttappat tillstånd samt överklagan.
+                            </p>
+                            <p>
+                                Handläggaren loggar in med kommunens ordinarie inloggning (single sign-on) och ser bara de ärenden
+                                som behörigheten tillåter. I ärendevyn samlas ansökan, bilagor som läkarintyg, intressenter och
+                                utredning på ett ställe - uppgifter om den sökande, till exempel folkbokföringsadress, hämtas
+                                automatiskt från kommunens grunddata. Ärendehanteringen följer sedan en fördefinierad process
+                                som drivs av en processmotor, där så många steg som möjligt automatiseras och varje ärende går
+                                genom samma kvalitetssäkrade flöde fram till beslut.
+                            </p>
+                            <p>
+                                Utredningar och beslut skrivs med stöd av färdiga mallar och renderas som PDF-dokument.
+                                Återkoppling till intressenter sker antingen via e-post, som ett meddelande till den e-tjänst där ärendet registrerats,
+                                via digital brevlåda eller via SMS. När ett tillstånd beviljas registreras det i ett centralt
+                                tillståndsregister, vilket gör att giltighet kan kontrolleras och att ett förnyelseärende
+                                automatiskt kan kopplas till det tidigare tillståndet.
                             </p>
                             <p>
                                 All hantering loggas för att säkerställa spårbarhet och möjliggöra uppföljning - statistik som visar vilka
                                 de vanligaste ärendetyperna är är en bra källa för information i en verksamhets förbättringsarbete.
+                            </p>
+                        </article>
+
+                        <article class="content-block">
+                            <h2>Öppen källkod och teknik</h2>
+                            <p>
+                                Webb-appen för parkeringstillstånd byggs från samma kodbas som webb-apparna för generisk
+                                ärendehantering och aktiveras genom konfiguration. Ärendena hanteras i kärn-API:et CaseData
+                                och processen drivs av en processmotor byggd på Camunda.
+                            </p>
+                            <p>
+                                Källkoden är öppen och finns på
+                                <a href="https://github.com/Sundsvallskommun/web-app-draken-public" target="_blank" rel="noopener">GitHub</a>.
+                                En teknisk beskrivning av lösningen, med länkar till samtliga ingående repon
+                                och API:er, finns på sidan
+                                <a href="teknisk-dokumentation/">Teknisk dokumentation</a>.
                             </p>
                         </article>
 
@@ -192,6 +225,8 @@
 
                         <div class="sidebar-cta">
                             <h3>Vill du veta mer?</h3>
+                            <p>Teknisk dokumentation med länkar till de GitHub-repon som bygger upp lösningen.</p>
+                            <a href="teknisk-dokumentation/" class="btn btn-primary">Teknisk dokumentation</a>
                             <p>Kontakta oss för mer information om Myndighetsutövning Parkeringstillstånd och hur din kommun kan komma igång.</p>
                             <a href="mailto:digitalisering@sundsvall.se" class="btn btn-primary">Kontakta oss</a>
                             <a href="../../dokumentation/" class="btn btn-secondary">Se dokumentation</a>
