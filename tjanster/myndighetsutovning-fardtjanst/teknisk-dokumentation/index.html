@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teknisk dokumentation för Myndighetsutövning Färdtjänst - länkar till de GitHub-repon som bygger upp lösningen, samt de API:er som webb-appen integrerar med.">
+    <title>Teknisk dokumentation - Myndighetsutövning Färdtjänst | Kommuna</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Teknisk dokumentation - Myndighetsutövning Färdtjänst | Kommuna">
+    <meta property="og:description" content="Länkar till de GitHub-repon som bygger upp lösningen, samt de API:er som webb-appen integrerar med.">
+    <meta property="og:image" content="https://kommuna.se/images/myndighetsutovning-fardtjanst-og.png">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../../../images/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../images/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Hoppa till huvudinnehåll</a>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../../../" class="logo" aria-label="Kommuna - Till startsidan">
+                    <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+                        <circle cx="12" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="12" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="20" cy="20" r="4" fill="#00A86B"/>
+                        <line x1="12" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="12" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                    </svg>
+                    <span class="logo-text">Kommuna</span>
+                </a>
+
+                <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Öppna meny">
+                    <span class="hamburger"></span>
+                </button>
+
+                <nav id="main-nav" class="main-nav" aria-label="Huvudnavigering">
+                    <ul class="nav-list">
+                        <li><a href="../../../" class="nav-link">Tjänster</a></li>
+                        <li><a href="../../../om-kommuna/" class="nav-link">Om Kommuna</a></li>
+                        <li><a href="../../../dokumentation/" class="nav-link">Dokumentation</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-hero service-hero">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Brödsmulor">
+                    <ol>
+                        <li><a href="../../../">Tjänster</a></li>
+                        <li><a href="../">Myndighetsutövning Färdtjänst</a></li>
+                        <li aria-current="page">Teknisk dokumentation</li>
+                    </ol>
+                </nav>
+                <span class="service-tag">Teknisk dokumentation</span>
+                <h1>Teknisk dokumentation - Myndighetsutövning Färdtjänst</h1>
+                <p class="page-intro">
+                    Här samlar vi länkar till de öppna källkodsrepon på GitHub som tillsammans bygger upp
+                    helhetslösningen, samt de API:er som lösningen integrerar med.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <article class="content-block">
+                    <h2>Webb-appen</h2>
+                    <p>
+                        Färdtjänst bygger i stor utsträckning på lösningen för
+                        <a href="../../myndighetsutovning-parkeringstillstand/">parkeringstillstånd</a> och delar
+                        webb-app med den: i det gemensamma repot ("draken"), där flera webb-appar byggs från samma
+                        kodbas, körs färdtjänstärendena som egna ärendetyper i webb-appen med konfigurationen
+                        <strong>PT</strong>. Frontend är byggd med Next.js/React och backend i Node.js/Express.
+                        Backend sköter inloggning via SAML mot kommunens identitetsleverantör (IdP) och all
+                        kommunikation med de underliggande API:erna via kommunens API-gateway (WSO2), där
+                        applikationen autentiserar sig med OAuth2 (client key/secret).
+                    </p>
+                    <p>
+                        Liksom parkeringstillstånd bygger färdtjänst på <strong>CaseData</strong> - ett kärn-API
+                        för myndighetsutövning - men har en egen processmotortjänst (Camunda) med processer
+                        specifika för färdtjänst. Eftersom lösningen delar webb-app med parkeringstillstånd
+                        gäller API-listan för PT i README-filen i webb-appens repo även för färdtjänst.
+                    </p>
+                    <p>
+                        <a href="https://github.com/Sundsvallskommun/web-app-draken-public" target="_blank" rel="noopener">
+                            github.com/Sundsvallskommun/web-app-draken-public
+                        </a>
+                    </p>
+                </article>
+
+                <article class="content-block">
+                    <h2>Lösningsarkitektur</h2>
+                    <p>
+                        Översikt över hur webb-appen, kärn-API:erna, processmotorn, master-data och externa
+                        system hänger ihop. Pilarna visar anrop. Bilden är härledd från webb-appen, API-listan
+                        och respektive API:s beskrivning av vad det i sin tur anropar.
+                    </p>
+                    <figure class="architecture-figure">
+                        <img src="../../../images/arkitektur-fardtjanst.svg"
+                             alt="Lösningsarkitektur för Myndighetsutövning Färdtjänst: webb-appen anropar kärn-API:erna CaseData, PartyAssets, Messaging, Templating, CaseStatus, Relations, Contract och JsonSchema samt master-data API:erna Citizen, ActiveDirectory, Employee och LegalEntity. Processmotorn pw-paratransit driver ärendeprocessen i CaseData. Ansökningar kommer in via Open ePlatform och återkoppling går ut via e-post, SMS och digital brevlåda.">
+                        <figcaption>
+                            Lösningsarkitektur — från webb-app via kärn-API:er till processmotor, master-data och externa system.
+                        </figcaption>
+                    </figure>
+                </article>
+
+                <br>
+
+                <article class="content-block">
+                    <h2>API:er som lösningen integrerar med</h2>
+                    <p>
+                        Webb-appen anropar ett antal API:er via API-gatewayn. Navet är <strong>CaseData</strong>,
+                        som lagrar ärenden, intressenter, utredningar och beslut, medan processmotorn
+                        <strong>pw-paratransit</strong> (byggd på Camunda) driver ärendet genom processens
+                        steg. De flesta API:er finns som öppna repon på Sundsvalls kommuns GitHub. Tabellen
+                        nedan beskriver vad varje API gör och länkar till källkoden.
+                    </p>
+                    <div class="requirements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">API</th>
+                                    <th scope="col">Typ</th>
+                                    <th scope="col">Beskrivning</th>
+                                    <th scope="col">Källkod</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>CaseData</td>
+                                    <td>Kärn-API</td>
+                                    <td>Navet i lösningen – lagrar och hanterar myndighetsärenden med intressenter, bilagor, utredningar, beslut, anteckningar och full ärendehistorik.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-case-data" target="_blank" rel="noopener">api-service-case-data</a></td>
+                                </tr>
+                                <tr>
+                                    <td>PartyAssets</td>
+                                    <td>Kärn-API</td>
+                                    <td>Register över utfärdade tillstånd och andra engagemang en person har hos kommunen – här registreras beviljade färdtjänsttillstånd.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-party-assets" target="_blank" rel="noopener">api-service-party-assets</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Messaging</td>
+                                    <td>Kärn-API</td>
+                                    <td>Skickar meddelanden via e-post, SMS, digital brevlåda och fysiska brev – används för återkoppling till sökande.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-messaging" target="_blank" rel="noopener">api-service-messaging</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Templating</td>
+                                    <td>Kärn-API</td>
+                                    <td>Lagrar och renderar mallar till text och PDF – används bland annat för beslutsdokument.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-templating" target="_blank" rel="noopener">api-service-templating</a></td>
+                                </tr>
+                                <tr>
+                                    <td>CaseStatus</td>
+                                    <td>Kärn-API</td>
+                                    <td>Levererar aktuell statusinformation om ärenden från underliggande system.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-case-status" target="_blank" rel="noopener">api-service-case-status</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Relations</td>
+                                    <td>Kärn-API</td>
+                                    <td>Lagrar relationer och kopplingar mellan ärenden och andra resurser, till exempel mellan ett omprövningsärende och det ursprungliga tillståndet.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-relations" target="_blank" rel="noopener">api-service-relations</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Contract</td>
+                                    <td>Kärn-API</td>
+                                    <td>Generisk tjänst för hantering av avtal av olika typer.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-contract" target="_blank" rel="noopener">api-service-contract</a></td>
+                                </tr>
+                                <tr>
+                                    <td>JsonSchema</td>
+                                    <td>Kärn-API</td>
+                                    <td>Tillhandahåller JSON-Schema och validering av data, till exempel ärendenas extrafält.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-json-schema" target="_blank" rel="noopener">api-service-json-schema</a></td>
+                                </tr>
+                                <tr>
+                                    <td>PwParatransit</td>
+                                    <td>Processmotor</td>
+                                    <td>Integrerar mot processmotorn Camunda och driver färdtjänstprocesserna – innehåller processdefinitioner och affärslogik som uppdaterar ärendena i CaseData.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/pw-paratransit" target="_blank" rel="noopener">pw-paratransit</a></td>
+                                </tr>
+                                <tr>
+                                    <td>SimulatorServer</td>
+                                    <td>Testverktyg</td>
+                                    <td>Simulatorserver för att testa olika svar (status, fördröjning och svarsinnehåll).</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">api-service-simulator-server</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>Master-data API:er utan publikt repo</h3>
+                    <p>
+                        Följande API:er hanterar kommun-specifik master-data och har därför inget publikt repo.
+                        För att få dessa på plats krävs en utvecklingsinsats anpassad efter den egna kommunens
+                        källsystem.
+                    </p>
+                    <div class="requirements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">API</th>
+                                    <th scope="col">Beskrivning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Citizen</td>
+                                    <td>Medborgarinformation – uppslag och grunddata om privatpersoner, till exempel folkbokföringsadress.</td>
+                                </tr>
+                                <tr>
+                                    <td>ActiveDirectory</td>
+                                    <td>Användar- och behörighetsinformation från katalogtjänsten.</td>
+                                </tr>
+                                <tr>
+                                    <td>Employee</td>
+                                    <td>Medarbetarinformation, till exempel uppgifter om handläggare.</td>
+                                </tr>
+                                <tr>
+                                    <td>LegalEntity</td>
+                                    <td>Information om organisationer och juridiska personer.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <p>
+                    <a href="../" class="btn btn-secondary">&larr; Tillbaka till Myndighetsutövning Färdtjänst</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kommuna</h3>
+                    <p>Ett samarbete mellan Sundsvall, Nordanstig, Hudiksvall, Ljusdal och Ånge kommuner.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Länkar</h3>
+                    <ul>
+                        <li><a href="../../../">Tjänster</a></li>
+                        <li><a href="../../../om-kommuna/">Om Kommuna</a></li>
+                        <li><a href="../../../dokumentation/">Dokumentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>E-post: <a href="mailto:digitalisering@sundsvall.se">digitalisering@sundsvall.se</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
+</body>
+</html>
