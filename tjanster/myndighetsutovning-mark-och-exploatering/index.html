@@ -114,20 +114,55 @@
                                 <li><strong>Behörighetsstyrning</strong> - Se och hantera bara de ärenden du ska se, inget annat</li>
                                 <li><strong>Ärendeprocess</strong> - Processmotorn säkrar ärendets livscykel på ett säkert och transparent sätt</li>
                                 <li><strong>Diarieföring</strong> - Inbyggt diariestöd - inga integrationer mot andra diariesystem krävs</li>
+                                <li><strong>Ärendetyper</strong> - Ett trettiotal ärendetyper, till exempel arrende och nyttjanderätt, markanvisning, köp och försäljning av mark, servitut, tomträtt och torgplats</li>
+                                <li><strong>Avtalshantering</strong> - Avtal, till exempel arrendeavtal, upprättas och hanteras direkt i ärendet</li>
+                                <li><strong>Fastighetskoppling</strong> - Ärenden kopplas till fastigheter, och fastighetsinformation hämtas automatiskt via fastighetsbeteckning</li>
+                                <li><strong>Fakturering</strong> - Fakturaunderlag skapas direkt från ärendet och skickas till ekonomisystemet</li>
+                                <li><strong>Beslutsmallar</strong> - Utredningar, beslut och avtal skrivs med färdiga mallar och renderas som PDF-dokument</li>
                             </ul>
                         </article>
 
                         <article class="content-block">
                             <h2>Så fungerar det</h2>
                             <p>
-                                Ett ärende registreras antingen automatiskt via inkommen e-post till en funktionsbrevlåda, via en integrerad e-tjänst
-                                eller genom registrering direkt i applikationen. Ärendehanteringen följer sedan en fördefinierad process där så många steg som möjligt
-                                automatiseras. Återkoppling till intressenter sker antingen via e-post, som ett meddelande till den e-tjänst där meddelandet registrerats,
-                                eller via SMS.
+                                Ett ärende registreras antingen automatiskt via inkommen e-post till en funktionsbrevlåda, via en integrerad e-tjänst,
+                                genom registrering direkt i applikationen eller genom att ett ärende vidarebefordras från kommunens kontaktcenter.
+                                Tjänsten hanterar ett trettiotal ärendetyper inom mark- och exploateringsområdet - bland annat arrende och
+                                nyttjanderätt, markanvisning, köp och försäljning av kommunal mark, servitut, tomträtt, jakträtt,
+                                lantmäteriförrättningar och torgplatser.
+                            </p>
+                            <p>
+                                Handläggaren loggar in med kommunens ordinarie inloggning (single sign-on) och ser bara de ärenden
+                                som behörigheten tillåter. I ärendevyn samlas intressenter, berörda fastigheter, bilagor och utredning
+                                på ett ställe - uppgifter om intressenter och fastigheter hämtas automatiskt från kommunens grunddata,
+                                till exempel via fastighetsbeteckning. Ärendehanteringen följer sedan en fördefinierad process
+                                som drivs av en processmotor, där så många steg som möjligt automatiseras.
+                            </p>
+                            <p>
+                                Utredningar, beslut och avtal - till exempel arrendeavtal - skrivs med stöd av färdiga mallar och
+                                renderas som PDF-dokument. Återkoppling till intressenter sker antingen via e-post, som ett meddelande
+                                till den e-tjänst där ärendet registrerats, eller via SMS. När ett ärende leder till en avgift eller
+                                intäkt kan fakturaunderlag skapas direkt från ärendet och skickas vidare till ekonomisystemet.
                             </p>
                             <p>
                                 All hantering loggas för att säkerställa spårbarhet och möjliggöra uppföljning - statistik som visar vilka
                                 de vanligaste ärendetyperna är är en bra källa för information i en verksamhets förbättringsarbete.
+                            </p>
+                        </article>
+
+                        <article class="content-block">
+                            <h2>Öppen källkod och teknik</h2>
+                            <p>
+                                Webb-appen för mark och exploatering byggs från samma kodbas som webb-apparna för generisk
+                                ärendehantering och parkeringstillstånd, och aktiveras genom konfiguration. Ärendena hanteras
+                                i kärn-API:et CaseData och processen drivs av en processmotor byggd på Camunda.
+                            </p>
+                            <p>
+                                Källkoden är öppen och finns på
+                                <a href="https://github.com/Sundsvallskommun/web-app-draken-public" target="_blank" rel="noopener">GitHub</a>.
+                                En teknisk beskrivning av lösningen, med länkar till samtliga ingående repon
+                                och API:er, finns på sidan
+                                <a href="teknisk-dokumentation/">Teknisk dokumentation</a>.
                             </p>
                         </article>
 
@@ -191,6 +226,8 @@
 
                         <div class="sidebar-cta">
                             <h3>Vill du veta mer?</h3>
+                            <p>Teknisk dokumentation med länkar till de GitHub-repon som bygger upp lösningen.</p>
+                            <a href="teknisk-dokumentation/" class="btn btn-primary">Teknisk dokumentation</a>
                             <p>Kontakta oss för mer information om Myndighetsutövning Mark och Exploatering och hur din kommun kan komma igång.</p>
                             <a href="mailto:digitalisering@sundsvall.se" class="btn btn-primary">Kontakta oss</a>
                             <a href="../../dokumentation/" class="btn btn-secondary">Se dokumentation</a>
