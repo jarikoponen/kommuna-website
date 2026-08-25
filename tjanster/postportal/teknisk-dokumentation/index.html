@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teknisk dokumentation för Postportal - länkar till de GitHub-repon som bygger upp lösningen, samt de API:er som webb-appen integrerar med.">
+    <title>Teknisk dokumentation - Postportal | Kommuna</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Teknisk dokumentation - Postportal | Kommuna">
+    <meta property="og:description" content="Länkar till de GitHub-repon som bygger upp lösningen, samt de API:er som webb-appen integrerar med.">
+    <meta property="og:image" content="https://kommuna.se/images/postportal-og.png">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../../../images/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../images/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Hoppa till huvudinnehåll</a>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../../../" class="logo" aria-label="Kommuna - Till startsidan">
+                    <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+                        <circle cx="12" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="12" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="20" cy="20" r="4" fill="#00A86B"/>
+                        <line x1="12" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="12" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                    </svg>
+                    <span class="logo-text">Kommuna</span>
+                </a>
+
+                <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Öppna meny">
+                    <span class="hamburger"></span>
+                </button>
+
+                <nav id="main-nav" class="main-nav" aria-label="Huvudnavigering">
+                    <ul class="nav-list">
+                        <li><a href="../../../" class="nav-link">Tjänster</a></li>
+                        <li><a href="../../../om-kommuna/" class="nav-link">Om Kommuna</a></li>
+                        <li><a href="../../../dokumentation/" class="nav-link">Dokumentation</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-hero service-hero">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Brödsmulor">
+                    <ol>
+                        <li><a href="../../../">Tjänster</a></li>
+                        <li><a href="../">Postportal</a></li>
+                        <li aria-current="page">Teknisk dokumentation</li>
+                    </ol>
+                </nav>
+                <span class="service-tag">Teknisk dokumentation</span>
+                <h1>Teknisk dokumentation - Postportal</h1>
+                <p class="page-intro">
+                    Här samlar vi länkar till de öppna källkodsrepon på GitHub som tillsammans bygger upp
+                    helhetslösningen, samt de API:er som lösningen integrerar med.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <article class="content-block">
+                    <h2>Webb-appen</h2>
+                    <p>
+                        Webb-appen ligger i ett repo som består av tre delar: ett användargränssnitt byggt med
+                        Next.js/React, ett administrationsgränssnitt (också Next.js) samt en backend i
+                        Node.js/Express. Backend sköter inloggning via SAML mot kommunens identitetsleverantör (IdP)
+                        och all kommunikation med de underliggande API:erna via kommunens API-gateway (WSO2), där
+                        applikationen autentiserar sig med OAuth2 (client key/secret).
+                    </p>
+                    <p>
+                        Lösningen är byggd för att kunna delas av flera kommuner i samma installation: varje
+                        värdnamn/domän kopplas i en konfigurationsdatabas (Prisma) till sin kommuns IdP och
+                        kommun-id, som sedan skickas med i alla API-anrop. Sessionshanteringen kan köras i minne,
+                        på fil eller mot Redis beroende på driftmiljö (Redis rekommenderas för containerdrift i
+                        t.ex. OpenShift).
+                    </p>
+                    <p>
+                        <a href="https://github.com/Sundsvallskommun/web-app-dispatch-portal" target="_blank" rel="noopener">
+                            github.com/Sundsvallskommun/web-app-dispatch-portal
+                        </a>
+                    </p>
+                </article>
+
+                <article class="content-block">
+                    <h2>Lösningsarkitektur</h2>
+                    <p>
+                        Översikt över hur webb-appen, API:erna, de interna stödtjänsterna, master-data och
+                        externa system hänger ihop. Pilarna visar anrop. Bilden är härledd från webb-appen,
+                        API-listan och respektive API:s beskrivning av vad det i sin tur anropar.
+                    </p>
+                    <figure class="architecture-figure">
+                        <img src="../../../images/arkitektur-postportal.svg"
+                             alt="Lösningsarkitektur för Postportal: webb-appen anropar PostPortalService, MessagingSettings samt master-data API:erna Citizen, Employee och LegalEntity. PostPortalService anropar i sin tur stödtjänsterna Messaging och DigitalRegisteredLetter, som når externa system som Mina meddelanden, fysisk postdistribution, SMS-tjänst och Kivra.">
+                        <figcaption>
+                            Lösningsarkitektur — från webb-app via PostPortalService till stödtjänster, master-data och externa system.
+                        </figcaption>
+                    </figure>
+                </article>
+
+                <br>
+
+                <article class="content-block">
+                    <h2>API:er som lösningen integrerar med</h2>
+                    <p>
+                        Webb-appen anropar ett antal API:er via API-gatewayn. Navet är
+                        <strong>PostPortalService</strong>, som tar emot utskicken och i sin tur anropar
+                        stödtjänsterna <strong>Messaging</strong> (digital och fysisk post samt SMS) och
+                        <strong>DigitalRegisteredLetter</strong> (digitalt REK via Kivra). De flesta API:er finns
+                        som öppna repon på Sundsvalls kommuns GitHub. Tabellen nedan beskriver vad varje API gör
+                        och länkar till källkoden. Vilka API-versioner webb-appen förväntar sig framgår av
+                        README-filen i webb-appens repo.
+                    </p>
+                    <div class="requirements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">API</th>
+                                    <th scope="col">Typ</th>
+                                    <th scope="col">Beskrivning</th>
+                                    <th scope="col">Källkod</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PostPortalService</td>
+                                    <td>Kärn-API</td>
+                                    <td>Navet i lösningen – tar emot utskick av brev, digitalt REK och SMS (enstaka mottagare eller massutskick via CSV-fil), kontrollerar i förväg vilket leveranssätt varje mottagare kan ta emot (precheck) samt tillhandahåller historik, kvittenser och statistik.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-postportalservice" target="_blank" rel="noopener">api-service-postportalservice</a></td>
+                                </tr>
+                                <tr>
+                                    <td>MessagingSettings</td>
+                                    <td>Kärn-API</td>
+                                    <td>Tillhandahåller kommun- och organisationsspecifika inställningar för utskick, till exempel avsändarinformation.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-messaging-settings" target="_blank" rel="noopener">api-service-messaging-settings</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Messaging</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Utför själva utskicken – digital post till digital brevlåda (Mina meddelanden), fysiska brev samt SMS.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-messaging" target="_blank" rel="noopener">api-service-messaging</a></td>
+                                </tr>
+                                <tr>
+                                    <td>DigitalRegisteredLetter</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Skickar digitala rekommenderade brev (REK) via Kivra, med signering och kvittens från mottagaren.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-digital-registered-letter" target="_blank" rel="noopener">api-service-digital-registered-letter</a></td>
+                                </tr>
+                                <tr>
+                                    <td>SimulatorServer</td>
+                                    <td>Testverktyg</td>
+                                    <td>Simulatorserver för att testa olika svar (status, fördröjning och svarsinnehåll).</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">api-service-simulator-server</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>Master-data API:er utan publikt repo</h3>
+                    <p>
+                        Följande API:er hanterar kommun-specifik master-data och har därför inget publikt repo.
+                        För att få dessa på plats krävs en utvecklingsinsats anpassad efter den egna kommunens
+                        källsystem.
+                    </p>
+                    <div class="requirements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">API</th>
+                                    <th scope="col">Beskrivning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Citizen</td>
+                                    <td>Medborgarinformation – slår upp mottagare via personnummer och hämtar namn och folkbokföringsadress.</td>
+                                </tr>
+                                <tr>
+                                    <td>Employee</td>
+                                    <td>Medarbetarinformation – används bland annat för uppgifter om den inloggade avsändaren.</td>
+                                </tr>
+                                <tr>
+                                    <td>LegalEntity</td>
+                                    <td>Information om organisationer och juridiska personer – slår upp mottagare via organisationsnummer.</td>
+                                </tr>
+                                <tr>
+                                    <td>Company</td>
+                                    <td>Bolagsinformation från kommunens källsystem.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <p>
+                    <a href="../" class="btn btn-secondary">&larr; Tillbaka till Postportal</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kommuna</h3>
+                    <p>Ett samarbete mellan Sundsvall, Nordanstig, Hudiksvall, Ljusdal och Ånge kommuner.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Länkar</h3>
+                    <ul>
+                        <li><a href="../../../">Tjänster</a></li>
+                        <li><a href="../../../om-kommuna/">Om Kommuna</a></li>
+                        <li><a href="../../../dokumentation/">Dokumentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>E-post: <a href="mailto:digitalisering@sundsvall.se">digitalisering@sundsvall.se</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
+</body>
+</html>

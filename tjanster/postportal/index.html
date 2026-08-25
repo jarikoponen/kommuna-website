@@ -92,6 +92,10 @@
                                 Lösningen minskar manuell hantering, förkortar handläggningstider och
                                 ser till att all post som går att skicka digitalt skickas digitalt.
                             </p>
+                            <p>
+                                Postportal är utvecklad av Sundsvalls kommun och finns tillgänglig som
+                                öppen källkod på GitHub.
+                            </p>
                         </article>
 
                         <article class="content-block">
@@ -99,29 +103,65 @@
                             <ul>
                                 <li><strong>Digital post</strong> - Skicka post digitalt till mottagare som har en digital brevlåda</li>
                                 <li><strong>Fysisk post</strong> - Om mottagaren saknar digital brevlåda triggas utskick av fysisk post istället</li>
-                                <li><strong>REK</strong> - Skicka digitalt REK till mottagare som är anslutna till Kivra</li>
+                                <li><strong>REK</strong> - Skicka digitalt REK till mottagare som är anslutna till Kivra, med signering och kvittens</li>
                                 <li><strong>SMS</strong> - Skicka SMS till en eller flera mottagare</li>
+                                <li><strong>Massutskick</strong> - Skicka till många mottagare på en gång genom att ladda upp en CSV-fil</li>
+                                <li><strong>Mottagarkontroll</strong> - Tjänsten kontrollerar automatiskt vilket leveranssätt varje mottagare kan ta emot</li>
                                 <li><strong>Historik</strong> - Se historik om alla dina skickade brev och SMS</li>
+                                <li><strong>Statistik</strong> - Följ upp utskick per förvaltning, till exempel fördelningen mellan digital och fysisk post</li>
+                                <li><strong>Administration</strong> - Eget administrationsgränssnitt för att hantera inställningar</li>
                             </ul>
                         </article>
 
                         <article class="content-block">
                             <h2>Så fungerar det</h2>
                             <p>
+                                Du loggar in i Postportal med kommunens ordinarie inloggning (single sign-on).
+                                Därefter väljer du typ av utskick - brev, digitalt REK eller SMS - och laddar
+                                upp det dokument som ska skickas som PDF.
+                            </p>
+                            <p>
                                 Du kan välja att skicka post till enstaka mottagare eller göra massutskick.
-                                För registrering av enstaka mottagare registreras dessa en och en.
-                                När du gör massutskick laddar du upp en fil med samtliga mottagare.
-                                De mottagare som har en digital brevlåda kommer att få posten levererad där.
-                                Mottagare utan digital brevlåda får posten via ordinarie postgång.
+                                Enstaka mottagare registreras en och en med personnummer (privatpersoner)
+                                eller organisationsnummer (företag och föreningar), och tjänsten hämtar då
+                                automatiskt namn och adressuppgifter. När du gör massutskick laddar du i
+                                stället upp en CSV-fil med samtliga mottagare.
+                            </p>
+                            <p>
+                                Innan utskicket sker gör tjänsten en automatisk kontroll av varje mottagare
+                                för att avgöra vilket leveranssätt som är möjligt. De mottagare som har en
+                                digital brevlåda kommer att få posten levererad där. Mottagare utan digital
+                                brevlåda får posten utskriven, kuverterad och levererad via ordinarie postgång -
+                                allt sköts av tjänsten utan manuell hantering.
                             </p>
                             <p>
                                 Det går även att trigga utskick av digitala REK, vilket gör att du får
-                                återkoppling från mottagaren att denne läst brevet. Det fungerar endast
+                                återkoppling från mottagaren att denne läst och signerat brevet. Det fungerar endast
                                 för mottagare som använder Kivra som digital brevlåda och kostar 20:- per
                                 utskick.
                             </p>
                             <p>
                                 All hantering loggas för att säkerställa spårbarhet och möjliggöra uppföljning.
+                                Under Mina utskick ser du historik och kvittenser för dina skickade brev, REK
+                                och SMS, och i statistikvyn kan förvaltningar följa upp sina utskick - till
+                                exempel hur stor andel som gått digitalt respektive fysiskt.
+                            </p>
+                        </article>
+
+                        <article class="content-block">
+                            <h2>Öppen källkod och teknik</h2>
+                            <p>
+                                Postportal är byggd som en webbapplikation med ett användargränssnitt, ett
+                                administrationsgränssnitt och en backend som kopplar mot kommunens API-plattform.
+                                Samma installation kan delas av flera kommuner, där varje kommun loggar in med
+                                sin egen identitetslösning.
+                            </p>
+                            <p>
+                                Källkoden är öppen och finns på
+                                <a href="https://github.com/Sundsvallskommun/web-app-dispatch-portal" target="_blank" rel="noopener">GitHub</a>.
+                                En teknisk beskrivning av lösningen, med länkar till samtliga ingående repon
+                                och API:er, finns på sidan
+                                <a href="teknisk-dokumentation/">Teknisk dokumentation</a>.
                             </p>
                         </article>
 
@@ -190,6 +230,8 @@
 
                         <div class="sidebar-cta">
                             <h3>Vill du veta mer?</h3>
+                            <p>Teknisk dokumentation med länkar till de GitHub-repon som bygger upp lösningen.</p>
+                            <a href="teknisk-dokumentation/" class="btn btn-primary">Teknisk dokumentation</a>
                             <p>Kontakta oss för mer information om Postportal och hur din kommun kan komma igång.</p>
                             <a href="mailto:digitalisering@sundsvall.se" class="btn btn-primary">Kontakta oss</a>
                             <a href="../../dokumentation/" class="btn btn-secondary">Se dokumentation</a>
