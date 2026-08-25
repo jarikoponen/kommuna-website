@@ -26,21 +26,19 @@ behöva bygga upp egen kompetens och infrastruktur från grunden.`,
     },
     'postportal': {
         title: 'Postportal',
-        description: `Postportal är en digital lösning för hantering av kommunal post och dokument.
-Tjänsten effektiviserar distribution och ger full spårbarhet genom hela flödet.
+        description: `Postportal är en digital lösning för utskick av post - digital eller fysisk -
+samt digitalt REK och SMS. Tjänsten effektiviserar distribution och ger full
+spårbarhet genom hela flödet.
 
-Med Postportal kan kommunen digitalisera inkommande post, automatiskt
-kategorisera och distribuera dokument till rätt mottagare, samt följa
-ärendenas status i realtid.
+Med Postportal kan kommunen digitalisera utgående post oavsett om mottagaren
+har en digital brevlåda eller ej. Mottagare med digital brevlåda får posten
+levererad där, övriga får den via ordinarie postgång.
 
 Lösningen minskar manuell hantering, förkortar handläggningstider och
-säkerställer att inga dokument kommer bort.`,
+ser till att all post som går att skicka digitalt skickas digitalt.`,
         targets: ['Medarbetare'],
-        sectors: ['Alla verksamheter', 'Administration'],
+        sectors: ['Alla verksamheter', 'Kommunikation'],
         techRequirements: [
-            'Integration mot dokumenthanteringssystem',
-            'E-postserver för notifieringar',
-            'Skanner för digitalisering av fysisk post',
             'Webbläsare för åtkomst till gränssnittet'
         ]
     },
