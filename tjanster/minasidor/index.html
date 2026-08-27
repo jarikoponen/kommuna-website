@@ -90,18 +90,27 @@
                                 finns redan etablerade, som t ex mot Generisk ärendehantering, lösningar för myndighetsutövning, ByggR, Ecos2 och Open ePlatform.
                             </p>
                             <p>
-                                Lösningen möjliggör självbetjäning för våra medborgare och företagare, vilket kommer att minska manuell hantering och 
+                                Lösningen möjliggör självbetjäning för våra medborgare och företagare, vilket kommer att minska manuell hantering och
                                 förkorta handläggningstider.
+                            </p>
+                            <p>
+                                Mina Sidor är utvecklad av Sundsvalls kommun och finns tillgänglig som öppen källkod på GitHub
+                                (<a href="https://github.com/Sundsvallskommun/web-app-business-center" target="_blank" rel="noopener">web-app-business-center</a>).
+                                Samma lösning innehåller Mina Sidor för både privatpersoner och företagare - det är ett och samma
+                                gränssnitt med två lägen, inte två separata system.
                             </p>
                         </article>
 
                         <article class="content-block">
                             <h2>Funktioner</h2>
                             <ul>
-                                <li><strong>Ärenden</strong> - Skapa/läs/uppdatera ärenden</li>
-                                <li><strong>Beslut</strong> - Ta del av, och agera på, beslut</li>
-                                <li><strong>Fakturor</strong> - Se dina historiska fakturor</li>
+                                <li><strong>Översikt</strong> - En samlad startsida med det viktigaste: pågående ärenden, senaste beslut och obetalda fakturor</li>
+                                <li><strong>Ärenden</strong> - Skapa nya ärenden samt följa status på pågående och avslutade ärenden</li>
+                                <li><strong>Beslut och dokument</strong> - Ta del av, och agera på, beslut samt tillstånd och andra dokument kopplade till dig eller ditt företag</li>
+                                <li><strong>Fakturor</strong> - Se dina fakturor från kommunen, både aktuella och historiska</li>
                                 <li><strong>Felanmälan</strong> - Hantera felanmälningar till kommunen</li>
+                                <li><strong>Profil</strong> - Se dina uppgifter och styra hur kommunen kontaktar dig, t ex via e-post eller SMS</li>
+                                <li><strong>Företagsläge</strong> - Företräder du ett företag väljer du vilket företag du vill agera för och får då företagets ärenden, beslut och fakturor</li>
                                 <li><strong>Med mera...</strong> - Mina Sidor utvecklas kontinuerligt med fler funktioner</li>
                             </ul>
                         </article>
@@ -109,12 +118,20 @@
                         <article class="content-block">
                             <h2>Så fungerar det</h2>
                             <p>
-                                Som medborgare eller företagare loggar du in på Mina Sidor för att hantera dina ärenden, se dina beslut, agera på dessa beslut,
-                                se dina fakturor, registrera felanmälningar, med mera.
+                                Du loggar in med e-legitimation, t ex BankID. Inloggningen sker via kommunens identitetslösning
+                                (SAML), så ingen separat användarregistrering behövs.
                             </p>
                             <p>
-                                Om du är firmatecknare, eller ombud, för ett företag kan du med en knapptryckning växla mellan Mina Sidor för medborgare
-                                och Mina Sidor för företag.
+                                Efter inloggning väljer du om du vill använda Mina Sidor som privatperson eller som företrädare
+                                för ett företag. Om du är firmatecknare, eller ombud, för ett eller flera företag kan du med en
+                                knapptryckning växla mellan Mina Sidor för privatpersoner och Mina Sidor för företag. Vilka
+                                företag du får företräda styrs av fullmakter och registrerade uppgifter, som kontrolleras
+                                automatiskt vid inloggning.
+                            </p>
+                            <p>
+                                Innehållet - ärenden, beslut, tillstånd och fakturor - hämtas i realtid från kommunens
+                                verksamhetssystem via API:er på kommunens integrationsplattform. Mina Sidor lagrar alltså inte
+                                egna kopior av verksamhetsdata, utan speglar det som finns i de underliggande systemen.
                             </p>
                         </article>
 
@@ -139,11 +156,13 @@
                                 <li>Integrationsmöjligheter mot underliggande system</li>
                             </ul>
                         </article>
-                        
+
                         <article class="content-block">
                             <h2>Tekniska krav</h2>
                             <ul>
                                 <li>Webbläsare för åtkomst till gränssnittet</li>
+                                <li>E-legitimation (t ex BankID) och en identitetsleverantör som stödjer SAML</li>
+                                <li>API-plattform (API-gateway) där lösningens API:er publiceras</li>
                             </ul>
                         </article>
                     </div>
@@ -169,6 +188,8 @@
 
                         <div class="sidebar-cta">
                             <h3>Vill du veta mer?</h3>
+                            <p>Teknisk dokumentation med länkar till de GitHub-repon som bygger upp lösningen.</p>
+                            <a href="teknisk-dokumentation/" class="btn btn-primary">Teknisk dokumentation</a>
                             <p>Kontakta oss för mer information om Mina Sidor och hur din kommun kan komma igång.</p>
                             <a href="mailto:digitalisering@sundsvall.se" class="btn btn-primary">Kontakta oss</a>
                             <a href="../../dokumentation/" class="btn btn-secondary">Se dokumentation</a>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teknisk dokumentation för Mina Sidor - länkar till de GitHub-repon som bygger upp lösningen, samt de API:er som webb-appen integrerar med.">
+    <title>Teknisk dokumentation - Mina Sidor | Kommuna</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Teknisk dokumentation - Mina Sidor | Kommuna">
+    <meta property="og:description" content="Länkar till de GitHub-repon som bygger upp lösningen, samt de API:er som webb-appen integrerar med.">
+    <meta property="og:image" content="https://kommuna.se/images/kommuna-og.png">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../../../images/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../images/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Hoppa till huvudinnehåll</a>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../../../" class="logo" aria-label="Kommuna - Till startsidan">
+                    <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+                        <circle cx="12" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="12" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="20" cy="20" r="4" fill="#00A86B"/>
+                        <line x1="12" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="12" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                    </svg>
+                    <span class="logo-text">Kommuna</span>
+                </a>
+
+                <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Öppna meny">
+                    <span class="hamburger"></span>
+                </button>
+
+                <nav id="main-nav" class="main-nav" aria-label="Huvudnavigering">
+                    <ul class="nav-list">
+                        <li><a href="../../../" class="nav-link">Tjänster</a></li>
+                        <li><a href="../../../om-kommuna/" class="nav-link">Om Kommuna</a></li>
+                        <li><a href="../../../dokumentation/" class="nav-link">Dokumentation</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-hero service-hero">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Brödsmulor">
+                    <ol>
+                        <li><a href="../../../">Tjänster</a></li>
+                        <li><a href="../">Mina Sidor</a></li>
+                        <li aria-current="page">Teknisk dokumentation</li>
+                    </ol>
+                </nav>
+                <span class="service-tag">Teknisk dokumentation</span>
+                <h1>Teknisk dokumentation - Mina Sidor</h1>
+                <p class="page-intro">
+                    Här samlar vi länkar till de öppna källkodsrepon på GitHub som tillsammans bygger upp
+                    helhetslösningen, samt de API:er som lösningen integrerar med.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <article class="content-block">
+                    <h2>Webb-appen</h2>
+                    <p>
+                        Webb-appen ligger i ett repo som innehåller både frontend och backend. Observera att repot
+                        innehåller Mina Sidor för <strong>både privatpersoner och företagare</strong> - det framgår
+                        inte av repots README (som bara nämner "Företagscenter - Mina sidor"), men det är en och
+                        samma applikation med två lägen (<code>/privat</code> respektive <code>/foretag</code>).
+                    </p>
+                    <p>
+                        <a href="https://github.com/Sundsvallskommun/web-app-business-center" target="_blank" rel="noopener">
+                            github.com/Sundsvallskommun/web-app-business-center
+                        </a>
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Frontend</strong> - Next.js/React (TypeScript) byggd med Sundsvalls kommuns
+                            designsystem (komponentbiblioteket <code>@sk-web-gui</code>). Sidorna är organiserade i sektioner för översikt, ärenden, beslut och dokument, fakturor
+                            och profil, plus en vy för att välja vilket företag man vill företräda. Stöd för flera
+                            språk finns via i18next.
+                        </li>
+                        <li>
+                            <strong>Backend</strong> - Node.js/Express (TypeScript) som fungerar som BFF
+                            (backend-for-frontend). Backend hanterar sessioner, sköter inloggning med SAML 2.0 mot en
+                            identitetsleverantör (t ex för BankID) och vidarebefordrar anrop till API:erna via
+                            API-gatewayen (WSO2) med klientnyckel och hemlighet. Prisma används för lokal datalagring.
+                        </li>
+                    </ul>
+                    <p>
+                        Vilka API:er och versioner som används finns samlat i
+                        <code>backend/src/config/api-config.ts</code> i repot - den listan är den auktoritativa
+                        källan, och applikationsanvändaren i WSO2 måste prenumerera på de API:er som listas där.
+                        Via konfiguration styrs också bland annat kommun-id, vilka tillståndstyper som visas och
+                        om beslutsfunktionen ska vara aktiv, vilket gör att lösningen kan anpassas per kommun.
+                    </p>
+                </article>
+
+                <article class="content-block">
+                    <h2>Lösningsarkitektur</h2>
+                    <p>
+                        Översikt över hur frontend, backend, API-gatewayen och API:erna hänger ihop. Pilarna visar
+                        anrop. Bilden är härledd från webb-appens kod, API-listan i
+                        <code>api-config.ts</code> och respektive API:s beskrivning.
+                    </p>
+                    <figure class="architecture-figure">
+                        <img src="../../../images/arkitektur-minasidor.svg"
+                             alt="Lösningsarkitektur för Mina Sidor: frontend anropar backend, som efter SAML-inloggning anropar API:erna CaseData, SupportManagement, CaseStatus, PartyAssets, Invoices, Messaging, ContactSettings, WebMessageCollector och JsonSchema via API-gatewayen, samt master-data-API:erna Citizen, LegalEntity, Employee och MyRepresentatives. Bakom API:erna finns externa system som Open ePlatform, Bolagsverket och ekonomisystem.">
+                        <figcaption>
+                            Lösningsarkitektur — från frontend via backend och API-gateway till API:er, master-data och externa system.
+                        </figcaption>
+                    </figure>
+                </article>
+
+                <br>
+
+                <article class="content-block">
+                    <h2>API:er som lösningen integrerar med</h2>
+                    <p>
+                        Backend anropar ett antal API:er via API-gatewayen. De flesta finns som öppna repon på
+                        Sundsvalls kommuns GitHub. Tabellen nedan beskriver vad varje API gör och länkar till
+                        källkoden. Vissa API:er används främst i privatläget (t ex Citizen), andra främst i
+                        företagsläget (t ex LegalEntity och MyRepresentatives), men merparten används i båda lägena.
+                    </p>
+                    <p>
+                        Alla integrationer är inte alltid nödvändiga - vilka som behövs beror på vilka funktioner
+                        som ska erbjudas. Till exempel behövs <strong>Invoices</strong> bara om fakturor ska visas,
+                        och <strong>WebMessageCollector</strong> är bara aktuell om Open ePlatform används som
+                        e-tjänsteplattform.
+                    </p>
+                    <div class="requirements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">API</th>
+                                    <th scope="col">Beskrivning</th>
+                                    <th scope="col">Källkod</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>CaseData</td>
+                                    <td>Registrerar och hanterar myndighetsärenden - grunden för ärendelistan och ärendedetaljerna.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-case-data" target="_blank" rel="noopener">api-service-case-data</a></td>
+                                </tr>
+                                <tr>
+                                    <td>SupportManagement</td>
+                                    <td>Registrerar och hanterar supportärenden, t ex felanmälningar, med statusar och kommunikation.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-support-management" target="_blank" rel="noopener">api-service-support-management</a></td>
+                                </tr>
+                                <tr>
+                                    <td>CaseStatus</td>
+                                    <td>Levererar aktuell statusinformation om ärenden från underliggande system.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-case-status" target="_blank" rel="noopener">api-service-case-status</a></td>
+                                </tr>
+                                <tr>
+                                    <td>PartyAssets</td>
+                                    <td>Håller tillgångar knutna till en person eller organisation, t ex tillstånd som parkeringstillstånd och färdtjänsttillstånd - används för beslut och dokument.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-party-assets" target="_blank" rel="noopener">api-service-party-assets</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Invoices</td>
+                                    <td>Levererar fakturainformation från kommunens ekonomisystem.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-invoices" target="_blank" rel="noopener">api-service-invoices</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Messaging</td>
+                                    <td>Skickar meddelanden via e-post, SMS och fysiska brev, t ex notifieringar och återkoppling.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-messaging" target="_blank" rel="noopener">api-service-messaging</a></td>
+                                </tr>
+                                <tr>
+                                    <td>ContactSettings</td>
+                                    <td>Lagrar kontaktinställningar - hur en person eller organisation vill bli kontaktad av kommunen.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-contactsettings" target="_blank" rel="noopener">api-service-contactsettings</a></td>
+                                </tr>
+                                <tr>
+                                    <td>WebMessageCollector</td>
+                                    <td>Samlar in meddelanden från Open ePlatform (e-tjänster).</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-web-message-collector" target="_blank" rel="noopener">api-service-web-message-collector</a></td>
+                                </tr>
+                                <tr>
+                                    <td>JsonSchema</td>
+                                    <td>Tillhandahåller JSON-Schema och validering av data.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-json-schema" target="_blank" rel="noopener">api-service-json-schema</a></td>
+                                </tr>
+                                <tr>
+                                    <td>SimulatorServer</td>
+                                    <td>Testverktyg - simulatorserver för att testa olika svar (status, fördröjning och svarsinnehåll).</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-simulator-server" target="_blank" rel="noopener">api-service-simulator-server</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>API:er utan publikt repo</h3>
+                    <p>
+                        Följande API:er hanterar kommun-specifik master-data eller integrationer mot nationella
+                        tjänster och har därför inget publikt repo. För att få dessa på plats krävs en
+                        utvecklingsinsats anpassad efter den egna kommunens källsystem.
+                    </p>
+                    <div class="requirements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">API</th>
+                                    <th scope="col">Beskrivning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Citizen</td>
+                                    <td>Medborgarinformation - uppslag och grunddata om privatpersoner.</td>
+                                </tr>
+                                <tr>
+                                    <td>LegalEntity</td>
+                                    <td>Information om organisationer och juridiska personer.</td>
+                                </tr>
+                                <tr>
+                                    <td>Employee</td>
+                                    <td>Medarbetarinformation, hämtas från Metadatakatalogen.</td>
+                                </tr>
+                                <tr>
+                                    <td>MyRepresentatives</td>
+                                    <td>Kontrollerar fullmakter - vilka företag en inloggad person får företräda, via Bolagsverkets tjänst Mina ombud. Grunden för företagsläget.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <p>
+                    <a href="../" class="btn btn-secondary">&larr; Tillbaka till Mina Sidor</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kommuna</h3>
+                    <p>Ett samarbete mellan Sundsvall, Nordanstig, Hudiksvall, Ljusdal och Ånge kommuner.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Länkar</h3>
+                    <ul>
+                        <li><a href="../../../">Tjänster</a></li>
+                        <li><a href="../../../om-kommuna/">Om Kommuna</a></li>
+                        <li><a href="../../../dokumentation/">Dokumentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>E-post: <a href="mailto:digitalisering@sundsvall.se">digitalisering@sundsvall.se</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
+</body>
+</html>
