@@ -97,6 +97,12 @@
                                 Tjänsten är framtagen utifrån behovet av att kunna sprida krisinformation och interna
                                 driftlarm på ett snabbt och tillförlitligt sätt.
                             </p>
+                            <p>
+                                Notifieraren är utvecklad av Sundsvalls kommun och finns tillgänglig som öppen källkod på GitHub
+                                (<a href="https://github.com/Sundsvallskommun/web-app-nidhogg" target="_blank" rel="noopener">web-app-nidhogg</a>).
+                                Lösningen består av en webbapp med egen databas samt ett antal stödtjänster som hanterar
+                                utskick och användare - allt driftat fristående från kommunens interna system.
+                            </p>
                         </article>
 
                         <article class="content-block">
@@ -108,7 +114,8 @@
                                 <li><strong>Automatisk mottagardata</strong> - Mottagarnas mobilnummer hämtas via en daglig export från kommunens AD - ingen manuell hantering krävs</li>
                                 <li><strong>Molndrift</strong> - Körs fristående från interna system och är nåbar även vid driftstopp</li>
                                 <li><strong>Larm vid driftstopp</strong> - Möjliggör notiser och larm när interna system är drabbade</li>
-                                <li><strong>Spårbarhet</strong> - Utskick loggas för uppföljning</li>
+                                <li><strong>Spårbarhet</strong> - Utskick loggas med leveransstatus per mottagare för uppföljning</li>
+                                <li><strong>Fler kanaler</strong> - Den underliggande utskickstjänsten har även stöd för meddelanden via Microsoft Teams</li>
                             </ul>
                         </article>
 
@@ -129,6 +136,12 @@
                                 interna nät eller system är drabbade av driftstopp. Det gör Notifieraren särskilt lämplig
                                 för krisinformation och interna driftlarm, då information behöver nå fram snabbt och
                                 tillförlitligt.
+                            </p>
+                            <p>
+                                Tekniskt sett loggar avsändaren in med ett användarkonto i webbappen, och själva utskicket
+                                hanteras av en fristående utskickstjänst som levererar SMS via en extern SMS-gateway
+                                (t ex Telia eller LinkMobility). Leveransstatus sparas per mottagare, så att avsändaren
+                                kan följa upp att informationen nått fram.
                             </p>
                         </article>
 
@@ -151,7 +164,7 @@
                             <h2>Krav på verksamhet</h2>
                             <ul>
                                 <li>Medarbetarnas mobilnummer registrerade i kommunens AD (hämtas via daglig export - ingen manuell hantering)</li>
-                                <li>Avtal för SMS-utskick</li>
+                                <li>Avtal med extern SMS-leverantör (t ex Telia eller LinkMobility)</li>
                             </ul>
                         </article>
 
@@ -197,6 +210,8 @@
 
                         <div class="sidebar-cta">
                             <h3>Vill du veta mer?</h3>
+                            <p>Teknisk dokumentation med länkar till de GitHub-repon som bygger upp lösningen.</p>
+                            <a href="teknisk-dokumentation/" class="btn btn-primary">Teknisk dokumentation</a>
                             <p>Kontakta oss för mer information om Notifieraren och hur din kommun kan komma igång.</p>
                             <a href="mailto:digitalisering@sundsvall.se" class="btn btn-primary">Kontakta oss</a>
                             <a href="../../dokumentation/" class="btn btn-secondary">Se dokumentation</a>

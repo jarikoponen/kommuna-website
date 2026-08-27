@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 720" width="1320" height="720" role="img" aria-label="Lösningsarkitektur för Notifieraren">
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7E8A9C"/></marker>
+</defs>
+<rect x="0" y="0" width="1320" height="720" fill="#FFFFFF"/>
+<text x="660" y="40" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="22" font-weight="700" fill="#0A3D6E">Lösningsarkitektur — Notifieraren</text>
+<text x="660" y="60" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" fill="#5A6573">Hela lösningen driftas i molnet, fristående från kommunens interna system. Pilar visar anrop och dataflöden.</text>
+<rect x="330" y="80" width="950" height="470" rx="12" fill="#F6FAFE" stroke="#9DBFE3" stroke-width="1.5"/>
+<text x="348" y="104" text-anchor="start" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="700" fill="#0A3D6E">MOLNDRIFT — fristående från kommunens interna system</text>
+<rect x="40" y="80" width="250" height="200" rx="12" fill="#FCF6E6" stroke="#E2C77E" stroke-width="1.5"/>
+<text x="58" y="104" text-anchor="start" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12.5" font-weight="700" fill="#6B4E10">KOMMUNENS MILJÖ</text>
+<rect x="65" y="130" width="200" height="64" rx="8" fill="#FBEFD3" stroke="#C8911B" stroke-width="1.4"/>
+<text x="165" y="156" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" font-weight="700" fill="#6B4E10">AD / katalogtjänst</text>
+<text x="165" y="174" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10.5" fill="#6B4E10" opacity="0.85">medarbetare och mobilnummer</text>
+<rect x="600" y="120" width="360" height="58" rx="10" fill="#DCEBFB" stroke="#0066CC" stroke-width="2"/>
+<text x="780" y="146" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="16" font-weight="700" fill="#0A3D6E">Webb-app — Notifieraren</text>
+<text x="780" y="164" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A3D6E" opacity="0.8">web-app-nidhogg (Next.js/React)</text>
+<rect x="370" y="120" width="190" height="58" rx="10" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.6"/>
+<text x="465" y="146" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="14" font-weight="700" fill="#2A3340">Databas (MySQL)</text>
+<text x="465" y="164" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10.5" fill="#2A3340" opacity="0.8">medarbetare, grupper, utskick</text>
+<path d="M600,149 L560,149" fill="none" stroke="#7FA8D8" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M265,162 C330,162 330,149 370,149" fill="none" stroke="#D2A23E" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<text x="318" y="140" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#8A94A2">daglig export</text>
+<rect x="480" y="250" width="230" height="64" rx="10" fill="#DFF3EA" stroke="#00A86B" stroke-width="2"/>
+<text x="595" y="276" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700" fill="#0A5A3C">Notifier</text>
+<text x="595" y="294" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A5A3C" opacity="0.8">utskick till medarbetare och grupper</text>
+<rect x="760" y="250" width="230" height="64" rx="10" fill="#DFF3EA" stroke="#00A86B" stroke-width="2"/>
+<text x="875" y="276" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700" fill="#0A5A3C">WebappUsers</text>
+<text x="875" y="294" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A5A3C" opacity="0.8">användarkonton och inloggning</text>
+<path d="M720,178 C720,214 595,214 595,250" fill="none" stroke="#7FA8D8" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M840,178 C840,214 875,214 875,250" fill="none" stroke="#7FA8D8" stroke-width="1.6" marker-end="url(#arr)"/>
+<rect x="400" y="390" width="200" height="60" rx="10" fill="#DFF3EA" stroke="#00A86B" stroke-width="2"/>
+<text x="500" y="415" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700" fill="#0A5A3C">SmsSender</text>
+<text x="500" y="432" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A5A3C" opacity="0.8">SMS-utskick</text>
+<rect x="650" y="390" width="200" height="60" rx="10" fill="#DFF3EA" stroke="#00A86B" stroke-width="2"/>
+<text x="750" y="415" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700" fill="#0A5A3C">TeamsSender</text>
+<text x="750" y="432" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#0A5A3C" opacity="0.8">Teams-utskick</text>
+<path d="M560,314 C560,352 500,352 500,390" fill="none" stroke="#AEB8C6" stroke-width="1.4" marker-end="url(#arr)"/>
+<path d="M630,314 C630,352 750,352 750,390" fill="none" stroke="#AEB8C6" stroke-width="1.4" marker-end="url(#arr)"/>
+<rect x="350" y="600" width="180" height="58" rx="8" fill="#ECECEC" stroke="#9AA0A6" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="440" y="624" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600" fill="#3A3F45">Telia</text>
+<text x="440" y="641" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#3A3F45" opacity="0.85">SMS-gateway</text>
+<rect x="560" y="600" width="180" height="58" rx="8" fill="#ECECEC" stroke="#9AA0A6" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="650" y="624" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600" fill="#3A3F45">LinkMobility</text>
+<text x="650" y="641" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#3A3F45" opacity="0.85">SMS-gateway</text>
+<rect x="770" y="600" width="180" height="58" rx="8" fill="#ECECEC" stroke="#9AA0A6" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="860" y="624" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600" fill="#3A3F45">Microsoft Teams</text>
+<text x="860" y="641" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#3A3F45" opacity="0.85">meddelandekanal</text>
+<text x="1120" y="630" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#5A6573">SMS-gateway kräver eget</text>
+<text x="1120" y="646" text-anchor="middle" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#5A6573">avtal med leverantören</text>
+<path d="M480,450 C480,528 440,528 440,600" fill="none" stroke="#9AA0A6" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<path d="M540,450 C540,528 650,528 650,600" fill="none" stroke="#9AA0A6" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<path d="M770,450 C770,528 860,528 860,600" fill="none" stroke="#9AA0A6" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<rect x="40" y="688" width="22" height="14" rx="3" fill="#DCEBFB" stroke="#0066CC" stroke-width="1.5"/>
+<text x="68" y="700" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" fill="#46505E">Webb-app</text>
+<rect x="160" y="688" width="22" height="14" rx="3" fill="#DFF3EA" stroke="#00A86B" stroke-width="1.5"/>
+<text x="188" y="700" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" fill="#46505E">API-tjänst (publikt repo)</text>
+<rect x="370" y="688" width="22" height="14" rx="3" fill="#EEF1F5" stroke="#7E8A9C" stroke-width="1.5"/>
+<text x="398" y="700" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" fill="#46505E">Datalager</text>
+<rect x="500" y="688" width="22" height="14" rx="3" fill="#FBEFD3" stroke="#C8911B" stroke-width="1.5"/>
+<text x="528" y="700" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" fill="#46505E">Kommun-specifikt</text>
+<rect x="670" y="688" width="22" height="14" rx="3" fill="#ECECEC" stroke="#9AA0A6" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="698" y="700" font-family="'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11.5" fill="#46505E">Externt system</text>
+</svg>
