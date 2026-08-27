@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teknisk dokumentation för Notifieraren - länkar till de GitHub-repon som bygger upp lösningen, samt de tjänster som lösningen integrerar med.">
+    <title>Teknisk dokumentation - Notifieraren | Kommuna</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Teknisk dokumentation - Notifieraren | Kommuna">
+    <meta property="og:description" content="Länkar till de GitHub-repon som bygger upp lösningen, samt de tjänster som lösningen integrerar med.">
+    <meta property="og:image" content="https://kommuna.se/images/kommuna-og.png">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../../../images/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../images/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Hoppa till huvudinnehåll</a>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../../../" class="logo" aria-label="Kommuna - Till startsidan">
+                    <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+                        <circle cx="12" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="12" r="6" fill="#0066CC"/>
+                        <circle cx="12" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="28" cy="28" r="6" fill="#0066CC"/>
+                        <circle cx="20" cy="20" r="4" fill="#00A86B"/>
+                        <line x1="12" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="12" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="12" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                        <line x1="28" y1="28" x2="20" y2="20" stroke="#0066CC" stroke-width="2"/>
+                    </svg>
+                    <span class="logo-text">Kommuna</span>
+                </a>
+
+                <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Öppna meny">
+                    <span class="hamburger"></span>
+                </button>
+
+                <nav id="main-nav" class="main-nav" aria-label="Huvudnavigering">
+                    <ul class="nav-list">
+                        <li><a href="../../../" class="nav-link">Tjänster</a></li>
+                        <li><a href="../../../om-kommuna/" class="nav-link">Om Kommuna</a></li>
+                        <li><a href="../../../dokumentation/" class="nav-link">Dokumentation</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-hero service-hero">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Brödsmulor">
+                    <ol>
+                        <li><a href="../../../">Tjänster</a></li>
+                        <li><a href="../">Notifieraren</a></li>
+                        <li aria-current="page">Teknisk dokumentation</li>
+                    </ol>
+                </nav>
+                <span class="service-tag">Teknisk dokumentation</span>
+                <h1>Teknisk dokumentation - Notifieraren</h1>
+                <p class="page-intro">
+                    Här samlar vi länkar till de öppna källkodsrepon på GitHub som tillsammans bygger upp
+                    helhetslösningen, samt de tjänster som lösningen integrerar med.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <article class="content-block">
+                    <h2>Webb-appen</h2>
+                    <p>
+                        Webb-appen ligger i ett repo med kodnamnet Nidhogg. Observera att repots README bara
+                        beskriver den tekniska uppsättningen - att applikationen är Notifieraren framgår inte
+                        av repot. Själva applikationen ligger i katalogen <code>client/</code>.
+                    </p>
+                    <p>
+                        <a href="https://github.com/Sundsvallskommun/web-app-nidhogg" target="_blank" rel="noopener">
+                            github.com/Sundsvallskommun/web-app-nidhogg
+                        </a>
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Applikation</strong> - Next.js/React (TypeScript) byggd med Sundsvalls kommuns
+                            designsystem (komponentbiblioteket <code>@sk-web-gui</code>) och Tailwind CSS. Gränssnittet
+                            innehåller vyer för att skapa utskick, hantera egna mottagargrupper och administration,
+                            med flerspråksstöd via next-intl. Inloggning och behörighetskontroll sker i appens
+                            middleware med JWT.
+                        </li>
+                        <li>
+                            <strong>Egen databas</strong> - Till skillnad från flera andra tjänster på kommuna.se har
+                            lösningen en egen fristående databas (MySQL, via Prisma). Där lagras medarbetare med
+                            mobilnummer och organisationstillhörighet (speglade från AD-exporten), egna
+                            mottagargrupper samt skickade meddelanden med leveransstatus per mottagare. Det är en
+                            förutsättning för att lösningen ska fungera även när kommunens interna system ligger nere.
+                        </li>
+                        <li>
+                            <strong>Drift</strong> - Hela lösningen paketeras med Docker och driftas i molnet,
+                            fristående från kommunens interna miljö. Tester körs med Cypress.
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="content-block">
+                    <h2>Lösningsarkitektur</h2>
+                    <p>
+                        Översikt över hur webb-appen, databasen och de underliggande tjänsterna hänger ihop.
+                        Pilarna visar anrop och dataflöden. Bilden är härledd från webb-appens kod och konfiguration
+                        samt respektive tjänsts beskrivning.
+                    </p>
+                    <figure class="architecture-figure">
+                        <img src="../../../images/arkitektur-notifieraren.svg"
+                             alt="Lösningsarkitektur för Notifieraren: webb-appen med egen MySQL-databas anropar tjänsterna Notifier och WebappUsers. Notifier skickar utskick via SmsSender till SMS-gatewayerna Telia och LinkMobility, samt via TeamsSender till Microsoft Teams. Medarbetardata hämtas via en daglig export från kommunens AD. Hela lösningen driftas i molnet, fristående från kommunens interna system.">
+                        <figcaption>
+                            Lösningsarkitektur — från webb-app via utskickstjänster till SMS-gateway, med egen databas för molndrift.
+                        </figcaption>
+                    </figure>
+                </article>
+
+                <br>
+
+                <article class="content-block">
+                    <h2>Tjänster som lösningen integrerar med</h2>
+                    <p>
+                        Webb-appen anropar två underliggande tjänster: <strong>Notifier</strong>, som hanterar själva
+                        utskicken, och <strong>WebappUsers</strong>, som hanterar användarkonton och inloggning.
+                        Notifier skickar i sin tur meddelandena vidare via utskickstjänsterna SmsSender och
+                        TeamsSender. Samtliga finns som öppna repon på Sundsvalls kommuns GitHub och är byggda i
+                        Java/Spring Boot.
+                    </p>
+                    <div class="requirements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Tjänst</th>
+                                    <th scope="col">Typ</th>
+                                    <th scope="col">Beskrivning</th>
+                                    <th scope="col">Källkod</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Notifier</td>
+                                    <td>Kärntjänst</td>
+                                    <td>Navet för utskicken - tar emot notifieringar och skickar dem till medarbetare, enskilt eller via grupper, genom underliggande utskickstjänster.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-notifier" target="_blank" rel="noopener">api-service-notifier</a></td>
+                                </tr>
+                                <tr>
+                                    <td>WebappUsers</td>
+                                    <td>Kärntjänst</td>
+                                    <td>Hanterar webb-appens användarkonton och utfärdar JWT vid inloggning.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-webapp-users" target="_blank" rel="noopener">api-service-webapp-users</a></td>
+                                </tr>
+                                <tr>
+                                    <td>SmsSender</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Skickar SMS via externa SMS-gatewayer. Stödjer Telia och LinkMobility, som kan aktiveras och prioriteras via konfiguration - eget avtal med leverantören krävs.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-sms-sender" target="_blank" rel="noopener">api-service-sms-sender</a></td>
+                                </tr>
+                                <tr>
+                                    <td>TeamsSender</td>
+                                    <td>Stödtjänst</td>
+                                    <td>Skickar meddelanden via Microsoft Teams.</td>
+                                    <td><a href="https://github.com/Sundsvallskommun/api-service-teams-sender" target="_blank" rel="noopener">api-service-teams-sender</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>Kommun-specifika delar utan publikt repo</h3>
+                    <p>
+                        Följande delar är beroende av den egna kommunens miljö och har därför inget publikt repo.
+                        För att få dessa på plats krävs en utvecklingsinsats anpassad efter kommunens källsystem.
+                    </p>
+                    <div class="requirements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Del</th>
+                                    <th scope="col">Beskrivning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AD-export</td>
+                                    <td>Daglig export av medarbetare, mobilnummer och organisationstillhörighet från kommunens katalogtjänst (AD) till lösningens databas. Håller mottagardata aktuell utan manuell hantering.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <p>
+                    <a href="../" class="btn btn-secondary">&larr; Tillbaka till Notifieraren</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kommuna</h3>
+                    <p>Ett samarbete mellan Sundsvall, Nordanstig, Hudiksvall, Ljusdal och Ånge kommuner.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Länkar</h3>
+                    <ul>
+                        <li><a href="../../../">Tjänster</a></li>
+                        <li><a href="../../../om-kommuna/">Om Kommuna</a></li>
+                        <li><a href="../../../dokumentation/">Dokumentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>E-post: <a href="mailto:digitalisering@sundsvall.se">digitalisering@sundsvall.se</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
+</body>
+</html>
